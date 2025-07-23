@@ -115,6 +115,20 @@ page5btn.addEventListener("click", function () {
 
 hideall(); // Hide all pages on load
 
+const hamBtn=document.querySelector("#hamIcon");
+const menuItemsList=document.querySelector("nav ul");
+hamBtn.addEventListener("click",toggleMenus);
+function toggleMenus(){ /*open and close menu*/
+//if menuItemsList dont have the class "menuShow", add it, else remove it
+menuItemsList.classList.toggle("menuShow");
+//if menu is showing (has the class “menuShow”)
+if(menuItemsList.classList.contains("menuShow")){
+hamBtn.innerHTML="Close Menu"; //change button text to chose menu
+}else{ //if menu NOT showing
+hamBtn.innerHTML="Open Menu"; //change button text open menu
+}
+}
+
 let note = document.getElementById("CrotchetNote");
 let posX = 0;
 let posY = 50;
@@ -135,7 +149,7 @@ notes.forEach((note, i) => {
         setInterval(() => {
             // Move right
             posX += 5;
-            if (posX > window.innerWidth) posX = -100;
+            if (posX > window.innerWidth) posX = -100; // Moves the image out of screen to the left
 
             // Bounce up and down
             if (goingDown) {

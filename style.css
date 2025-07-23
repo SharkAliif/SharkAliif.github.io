@@ -4,8 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
 html, body {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 3vh;
@@ -151,6 +149,14 @@ nav button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
+
+
+@media (max-width:800px){ /*at mobile size*/
+#qrCodeImg{display:none;} /*hide QR code */
+h1{background: lightgreen;}
+h1::after{content:"(mobile)";}/*append text 'mobile’ */
+}
+
 
 /* ===== Cards & Art ===== */
 .instrument-card {

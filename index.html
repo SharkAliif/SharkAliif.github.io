@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
   <link href="style.css" rel="stylesheet">
   <script src="main.js" defer></script>
   <title>String Instruments</title>
@@ -26,9 +28,13 @@
     ~ Welcome to the World of String Instruments ~
     <img src="images/Crotchet.png" class="floating-note" alt="Note 1">
     <img src="images/Crotchet.png" class="floating-note" alt="Note 2">
+    <p>Window inner width: <span id="width"></span></p>
+    <p>Window inner height: <span id="height"></span></p>
   </header>
 
   <div class="divider"></div>
+
+  <img id="qrCodeImg" src="images/qrcode_sharkaliif.github.io.png">
 
   <!-- Types of String Instruments -->
   <div id="page1" class="page">
@@ -256,7 +262,7 @@
     <article>
         <h3>Cultural Significance</h3>
         <ul>
-            <li>Classical Music: Essential for composers like Mozart, Beethoven, and Debussy</li>
+            <li>Classical Music: Essential for composers like Mozart, Beethoven, and Bach</li>
             <li>Jazz & Pop: From ragtime (Scott Joplin) to modern artists (Elton John, Alicia Keys)</li>
         </ul>
     </article>

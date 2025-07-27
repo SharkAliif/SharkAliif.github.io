@@ -1,0 +1,450 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Glorious-christmas-font;
+  src: url(fonts/glorious-christmas-font/GloriousChristmas-BLWWB.ttf);
+}
+
+@font-face {
+  font-family: Seraneo;
+  src: url(fonts/seraneo/Seraneo\ DEMO\ VERSION.ttf);
+}
+
+html, body {
+  font-family: monospace;
+  font-size: 3vh;
+  color: #222;
+  text-align: center;
+  animation: fadein ease-in 2s forwards;
+  padding-top: 60px;
+  background-color: transparent;
+}
+
+@keyframes fadein {
+  0% { background-color: black; opacity: 0; }
+  100% { background-color: transparent; opacity: 1; }
+}
+
+#page1 {
+  list-style: inside;
+}
+
+.page {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.divider {
+  width: 100%;
+  height: 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  border: 5px solid;
+  border-image: linear-gradient(to right, #BCAAA4, #FFF8F0) 1;
+  background-color: #D7CCC8;
+}
+
+h1, h2, h3 {
+  font-family: Glorious-christmas-font;
+  margin-top: 1.5rem;
+  color: #4E342E;
+  text-shadow: 1px 1px 2px #D7CCC8;
+}
+
+h1 {
+  font-size: 5vh;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 4vh;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 3vh;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+p, li {
+  font-size: 2.5vh;
+  line-height: 1.6;
+  color: #3E2723;
+  background-color: #FFF3E0;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-left: 4px solid #8D6E63;
+  border-radius: 5px;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+ol li {
+  background-color: #F5E9DC;
+  border-left: 3px solid #8D6E63;
+  padding: 8px;
+  margin-bottom: 0.5em;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  height: 60px;
+  background: linear-gradient(135deg, #8D6E63, #5D4037);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#hamIcon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+nav ul {
+  display: none;
+  position: absolute;
+  top: 60px; left: 0; right: 0;
+  flex-direction: column;
+  background: inherit;
+  box-shadow: inherit;
+  list-style: none;
+}
+
+nav ul.menuShow {
+  display: flex;
+}
+
+nav li, nav button {
+  padding: 15px 20px;
+  background: transparent;
+  border: none;
+  color: #FFF8F0;
+  cursor: pointer;
+  transition: 0.3s ease, transform 0.2s ease;
+}
+
+nav button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 5px #FFD700;
+}
+
+@media (min-width: 800px) {
+  #hamIcon { display: none !important; }
+  nav { justify-content: center; padding: 0; }
+  nav ul {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+  }
+  nav li { margin: 0 15px; }
+  nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width:800px) {
+  #qrCodeImg { display: none; }
+  h1::after { content: "(mobile)"; }
+}
+
+#Instrument-CardContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 25vw;
+    min-width: 200px;
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 1;
+}
+
+/* The rotating inner container */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* When flipped */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Both sides of the card */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    transition: 0.5s ease;
+}
+
+/* Front side */
+.flip-card-front {
+    background-color: #F5E9DC;
+    border: 3px solid #3E2723;
+    image-rendering: pixelated;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Back side */
+.flip-card-back {
+    border: 3px solid #3E2723;
+    background-color: #F5E9DC;
+    color: #F5E9DC;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Hover effect on the entire flip card */
+.flip-card:hover .flip-card-front {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #BCAAA4;
+    border: 5px solid #FFF8F0;
+}
+
+.pixel-art {
+    max-width: 80%;
+    max-height: 80%;
+    image-rendering: pixelated;
+}
+
+.ViolinSounds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f3ec;
+  border: 1px solid black;
+  border-radius: 16px;
+  max-width: 500px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.ViolinSounds button {
+  background-color: #fff7e8;
+  border: 2px solid #d4a373;
+  color: #5c3d27;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.ViolinSounds button:hover {
+  background-color: #ffe8c9;
+  transform: scale(1.05);
+  border-color: #bc8a5f;
+}
+
+.ViolinSounds button:active {
+  transform: scale(0.95);
+  background-color: #ffddb0;
+}
+
+
+.sprite {
+	background: url('images/gameuiicons.png') no-repeat -438px -166px;
+	width: 149px;
+	height: 154px;
+  justify-content: center;
+}
+
+.pixel-art {
+  width: 400px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.floating-note {
+  position: absolute;
+  width: 80px;
+  z-index: 2;
+  animation: floatNote 2s infinite alternate;
+}
+
+@keyframes floatNote {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+fieldset {
+  border: 2px solid #5D4037;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #F5E9DC;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #5D4037;
+  text-shadow: 1px 1px 2px #D7CCC8;
+}
+
+label {
+  display: block;
+  background-color: #D7CCC8;
+  border-radius: 10px;
+  padding: 20px 0;
+  margin: 8px 0;
+  border-left: 4px solid #8D6E63;
+  cursor: pointer;
+}
+
+label:hover {
+  background-color: #BCAAA4;
+  color: #FFF8F0;
+}
+
+.correct { color: green; font-weight: bold; }
+.incorrect { color: crimson; }
+
+#btnSubmit, #scorebox {
+  position: sticky;
+  right: 0;
+  border-radius: 8px;
+  font-size: 1em;
+  padding: 10px 20px;
+}
+
+#btnSubmit {
+  bottom: 50px;
+  background: #5D4037;
+  color: #FFF8F0;
+  border: 2px solid #3E2723;
+  cursor: pointer;
+}
+
+#btnSubmit:hover {
+  background-color: #3E2723;
+  box-shadow: 0 0 10px #B87333;
+}
+
+#scorebox {
+  bottom: 0;
+  background-color: #F5E9DC;
+  color: #3E2723;
+  border: 3px solid #5D4037;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #FFF8F0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #D7CCC8;
+  text-align: left;
+}
+
+th {
+  background-color: #5D4037;
+  color: #FFF8F0;
+}
+
+tr:hover {
+  background-color: #D7CCC8;
+}
+
+details {
+  margin: 10px 0;
+  text-align: left;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgba(141, 110, 99, 0.2);
+  border-radius: 4px;
+  color: #3E2723;
+}
+
+details[open] summary {
+  border-bottom: 2px solid #8D6E63;
+}
+
+.global-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.region-card {
+  background-color: #FBE9E7;
+  padding: 15px;
+  border: 2px solid #D7CCC8;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.region-card:hover {
+  transform: scale(1.03);
+  background-color: #EFEBE9;
+}
+
+footer {
+  margin-top: 40px;
+  padding: 15px;
+  text-align: center;
+  font-size: 2vh;
+  font-weight: bold;
+  color: #FFF8F0;
+  background: linear-gradient(135deg, #F3904F 0%, #3b4713 100%);
+  border-radius: 8px;
+}

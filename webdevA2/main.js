@@ -1,5 +1,3 @@
-/* jshint esversion: 5 */
-
 var CorrectAnswers = {
     // EASY (1–10)
     q1: "Blowing",
@@ -44,10 +42,10 @@ var CorrectAnswers = {
     q34: "Gut",
     q35: "Sympathetic strings",
     q36: "Mozart",
-    q37: "Left-hand pizz",
+    q37: "Spruce",
     q38: "Unplayed",
     q39: "String crossing",
-    q40: "Tartini"
+    q40: "Spirit varnish evaporates solvents quickly, preserving resonance; oil varnish penetrates and hardens wood"
 };
 
 var ViolinVibrato = new Audio("audio/ViolinArcoVibratoAudio.mp3");
@@ -69,40 +67,61 @@ document.getElementById("Pizz").addEventListener("click", function () {
 var scorebox = document.querySelector("#scorebox");
 
 function CheckAns() {
-    var score = 0;
+  // Start with a score of zero
+  var score = 0;
 
-    // Remove old feedback classes
-    var previousFeedback = document.querySelectorAll(".correct, .incorrect");
-    for (var i = 0; i < previousFeedback.length; i++) {
-        previousFeedback[i].classList.remove("correct", "incorrect");
+  // Find all elements that currently have "correct" or "incorrect" classes
+  var feedbackElements = document.querySelectorAll(".correct, .incorrect");
+
+  // Remove those classes to clear old feedback
+  for (var i = 0; i < feedbackElements.length; i++) {
+    feedbackElements[i].classList.remove("correct");
+    feedbackElements[i].classList.remove("incorrect");
+  }
+
+  // Loop through questions 1 to 40
+  for (var num = 1; num <= 40; num++) {
+    // Find the selected radio button for question num
+    var selected = document.querySelector('input[name="q' + num + '"]:checked');
+
+    // If the user has selected an answer
+    if (selected) {
+      // Get the value (the user's answer)
+      var userAnswer = selected.value;
+
+      // Get the correct answer from CorrectAnswers object
+      var correctAnswer = CorrectAnswers["q" + num];
+
+      // Find the label or parent element for styling feedback
+      var parent = selected.closest("label") || selected.parentElement;
+
+      // Check if user's answer matches the correct one
+      if (userAnswer === correctAnswer) {
+        // Increase the score by 1
+        score++;
+
+        // Add the "correct" class to the parent element
+        parent.classList.add("correct");
+      } else {
+        // Otherwise add the "incorrect" class
+        parent.classList.add("incorrect");
+      }
     }
+  }
 
-    // Check each question
-    for (var num = 1; num <= 40; num++) {
-        var selectedRadios = document.querySelector('input[name="q' + num + '"]:checked');
-        if (selectedRadios) {
-            var UserAnswer = selectedRadios.value;
-            if (UserAnswer === CorrectAnswers["q" + num]) {
-                score++;
-                var parent = selectedRadios.closest("label") || selectedRadios.parentElement;
-                parent.classList.add("correct");
-            } else {
-                var parentWrong = selectedRadios.closest("label") || selectedRadios.parentElement;
-                parentWrong.classList.add("incorrect");
-            }
-        }
-    }
+  // Show the score out of 40 in the scorebox element
+  scorebox.innerHTML = score + " /40";
 
-    scorebox.innerHTML = score + " /40";
-
-    if (score <= 10) {
-        scorebox.style.color = "red";
-    } else if (score <= 20) {
-        scorebox.style.color = "orange";
-    } else {
-        scorebox.style.color = "green";
-    }
+  // Change the color of the scorebox depending on the score
+  if (score <= 10) {
+    scorebox.style.color = "red";
+  } else if (score <= 20) {
+    scorebox.style.color = "orange";
+  } else {
+    scorebox.style.color = "green";
+  }
 }
+
 
 var btnSubmit = document.querySelector("#btnSubmit");
 btnSubmit.addEventListener("click", CheckAns);

@@ -27,7 +27,7 @@ var CorrectAnswers = {
     q18: "Spruce",
     q19: "Unplayed",
     q20: "String crossing"
-}
+};
 
 // Audio files for violin sounds
 var ViolinVibrato = new Audio("audio/ViolinArcoVibratoAudio.mp3");
@@ -149,6 +149,17 @@ if (allpages.length > 0) {
     hideall();
 }
 
+const btnFS=document.querySelector("#btnFS");
+ const btnWS=document.querySelector("#btnWS");
+ btnFS.addEventListener("click",enterFullscreen);
+ btnWS.addEventListener("click",exitFullscreen);
+ function enterFullscreen() { //must be called by user generated event
+ document.documentElement.requestFullscreen(); 
+}
+ function exitFullscreen() {
+ document.exitFullscreen();
+ }
+
 let points = 0;
 let lives = 3;
 let notes = [];
@@ -227,9 +238,12 @@ function hitLane(index) {
     // Add glow effect
     const btn = buttons[index];
     btn.classList.add('glow', `lane-${index}`);
-    setTimeout(() => {
-        btn.classList.remove('glow', `lane-${index}`);
-    }, 150);
+   function removeGlow() {
+    btn.classList.remove('glow', `lane-${index}`);
+}
+
+setTimeout(removeGlow, 150);
+
 
     for (let i = 0; i < notes.length; i++) {
         let note = notes[i];

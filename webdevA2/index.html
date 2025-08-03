@@ -2,15 +2,32 @@
 <html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+  <!-- PWA support -->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- iOS home screen support -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="manifest" href="manifest.json" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="String Instruments">
+  <link rel="apple-touch-icon" href="images/Crotchet.png">
+
+  <!-- Favicon support -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Styles & Scripts -->
   <link href="style.css" rel="stylesheet">
   <script src="main.js" defer></script>
+
   <title>String Instruments</title>
 </head>
+
 
 
 
@@ -30,6 +47,10 @@
   <header>
     <br>
     <h1>~ Welcome to the World of String Instruments ~ </h1>
+    <button id="btnFS">FullScreen</button>
+    <button id="btnWS">Exit Full Screen</button>
+    <br>
+    <br>
     <img src="images/Crotchet.png" class="floating-note" alt="Note 1">
     <img src="images/Crotchet.png" class="floating-note" alt="Note 2">
     <p>Window inner width: <span id="width"></span></p>
@@ -156,7 +177,7 @@
       some even don't even have a body like an Electric Violin!
       This is because they can amplify sound using an amp!</p>
 
-    <div class="sprite" alt="textsprite" title="textsprite"></div>
+    <div class="sprite" title="textsprite"></div>
 
     <h3>Tuning pitches (A = 442 Hz / 440 Hz / 415 Hz), EADGBE (Guitar)</h3>
     <p> String Instruments are generally tuned to a certain pitch (Hz).
@@ -287,120 +308,123 @@
   </div>
 
   <div id="page4" class="page">
-  <h2>History and Culture</h2>
+    <h2>History and Culture</h2>
 
-  <div class="global-grid">
-    <!-- First row - 3 columns -->
-    <section class="grid-section instrument-category">
-      <h2>1. The Violin Family</h2>
-      
-      <article>
-        <h3>Origins & Development</h3>
-        <p>Early Ancestors: The violin evolved from earlier bowed instruments like the rebec (Medieval Europe) and the lira da braccio (Renaissance Italy).</p>
-        <p>Modern Violin: The first true violins appeared in 16th-century Italy, crafted by luthiers like Andrea Amati (Cremona). Antonio Stradivari later perfected the design, creating legendary Stradivarius violins in Italy.</p>
-      </article>
-    </section>
+    <div class="global-grid">
+      <!-- First row - 3 columns -->
+      <section class="grid-section instrument-category">
+        <h2>1. The Violin Family</h2>
 
-    <section class="grid-section instrument-category">
-      <h2>2. The Piano</h2>
-      
-      <article>
-        <h3>Invention & Evolution</h3>
-        <p>Predecessors: The harpsichord (plucked strings) and clavichord (struck strings).</p>
-        <p>Bartolomeo Cristofori (1700): Invented the pianoforte in Italy, allowing dynamic control (soft/loud).</p>
-      </article>
-    </section>
+        <article>
+          <h3>Origins & Development</h3>
+          <p>Early Ancestors: The violin evolved from earlier bowed instruments like the rebec (Medieval Europe) and the
+            lira da braccio (Renaissance Italy).</p>
+          <p>Modern Violin: The first true violins appeared in 16th-century Italy, crafted by luthiers like Andrea Amati
+            (Cremona). Antonio Stradivari later perfected the design, creating legendary Stradivarius violins in Italy.
+          </p>
+        </article>
+      </section>
 
-    <section class="grid-section instrument-category">
-      <h2>3. Global Instruments</h2>
-      
-      <article>
-        <h3>Cultural Impact</h3>
+      <section class="grid-section instrument-category">
+        <h2>2. The Piano</h2>
+
+        <article>
+          <h3>Invention & Evolution</h3>
+          <p>Predecessors: The harpsichord (plucked strings) and clavichord (struck strings).</p>
+          <p>Bartolomeo Cristofori (1700): Invented the pianoforte in Italy, allowing dynamic control (soft/loud).</p>
+        </article>
+      </section>
+
+      <section class="grid-section instrument-category">
+        <h2>3. Global Instruments</h2>
+
+        <article>
+          <h3>Cultural Impact</h3>
+          <ul>
+            <li>Central to Baroque, Classical, and Romantic music</li>
+            <li>Used in folk traditions worldwide</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <!-- Second row - 3 columns -->
+    <div class="global-grid">
+      <section class="grid-section instrument-category">
+        <h3>Violin Cultural Impact</h3>
         <ul>
-          <li>Central to Baroque, Classical, and Romantic music</li>
-          <li>Used in folk traditions worldwide</li>
+          <li>Vivaldi, Bach, Paganini</li>
+          <li>Irish fiddling, Gypsy jazz</li>
+        </ul>
+      </section>
+
+      <section class="grid-section instrument-category">
+        <h3>Piano Significance</h3>
+        <ul>
+          <li>Mozart, Beethoven, Bach</li>
+          <li>Jazz & Pop: Joplin to Alicia Keys</li>
+        </ul>
+      </section>
+
+      <section class="grid-section instrument-category">
+        <h3>Related Instruments</h3>
+        <ul>
+          <li>Viola, Cello, Double Bass</li>
+          <li>Erhu (China)</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- World Instruments Section -->
+    <h2 class="section-title">Global String Instruments</h2>
+
+    <div class="global-grid">
+      <article class="grid-section instrument-card">
+        <h3>Europe</h3>
+        <ul>
+          <li>Harp: Ancient origins (Egypt, Mesopotamia)</li>
+          <li>Lute & Guitar: Renaissance to modern</li>
         </ul>
       </article>
-    </section>
+
+      <article class="grid-section instrument-card">
+        <h3>Asia</h3>
+        <ul>
+          <li>Sitar (India): With sympathetic strings</li>
+          <li>Koto (Japan): 13-string zither</li>
+        </ul>
+      </article>
+
+      <article class="grid-section instrument-card">
+        <h3>Middle East & Africa</h3>
+        <ul>
+          <li>Oud: Fretless lute</li>
+          <li>Kora: 21-string harp-lute</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Final row -->
+    <div class="global-grid">
+      <section class="grid-section instrument-category">
+        <h3>Status and Power</h3>
+        <p>In some societies, instruments signify social status.</p>
+        <ul>
+          <li>Renaissance lute players were nobility</li>
+          <li>African kora players as griots</li>
+        </ul>
+      </section>
+
+      <section class="grid-section fun-fact">
+        <h3>Fun Facts</h3>
+        <p>🎻 Violin: 400+ years!<br>
+          🎶 Piano is a string instrument!<br>
+          🪕 12-string guitars exist!</p>
+      </section>
+    </div>
+
+    <footer>Lab02 Aliif 252292L</footer>
   </div>
-
-  <!-- Second row - 3 columns -->
-  <div class="global-grid">
-    <section class="grid-section instrument-category">
-      <h3>Violin Cultural Impact</h3>
-      <ul>
-        <li>Vivaldi, Bach, Paganini</li>
-        <li>Irish fiddling, Gypsy jazz</li>
-      </ul>
-    </section>
-
-    <section class="grid-section instrument-category">
-      <h3>Piano Significance</h3>
-      <ul>
-        <li>Mozart, Beethoven, Bach</li>
-        <li>Jazz & Pop: Joplin to Alicia Keys</li>
-      </ul>
-    </section>
-
-    <section class="grid-section instrument-category">
-      <h3>Related Instruments</h3>
-      <ul>
-        <li>Viola, Cello, Double Bass</li>
-        <li>Erhu (China)</li>
-      </ul>
-    </section>
-  </div>
-
-  <!-- World Instruments Section -->
-  <h2 class="section-title">Global String Instruments</h2>
-  
-  <div class="global-grid">
-    <article class="grid-section instrument-card">
-      <h3>Europe</h3>
-      <ul>
-        <li>Harp: Ancient origins (Egypt, Mesopotamia)</li>
-        <li>Lute & Guitar: Renaissance to modern</li>
-      </ul>
-    </article>
-
-    <article class="grid-section instrument-card">
-      <h3>Asia</h3>
-      <ul>
-        <li>Sitar (India): With sympathetic strings</li>
-        <li>Koto (Japan): 13-string zither</li>
-      </ul>
-    </article>
-
-    <article class="grid-section instrument-card">
-      <h3>Middle East & Africa</h3>
-      <ul>
-        <li>Oud: Fretless lute</li>
-        <li>Kora: 21-string harp-lute</li>
-      </ul>
-    </article>
-  </div>
-
-  <!-- Final row -->
-  <div class="global-grid">
-    <section class="grid-section instrument-category">
-      <h3>Status and Power</h3>
-      <p>In some societies, instruments signify social status.</p>
-      <ul>
-        <li>Renaissance lute players were nobility</li>
-        <li>African kora players as griots</li>
-      </ul>
-    </section>
-
-    <section class="grid-section fun-fact">
-      <h3>Fun Facts</h3>
-      <p>🎻 Violin: 400+ years!<br>
-         🎶 Piano is a string instrument!<br>
-         🪕 12-string guitars exist!</p>
-    </section>
-  </div>
-
-  <footer>Lab02 Aliif 252292L</footer>
-</div>
 
   <!--  Miscellaneous and more MiniGames -->
   <div id="page5" class="page">

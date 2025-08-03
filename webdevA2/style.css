@@ -371,6 +371,7 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   margin: 20px auto;
 }
 
+/* Lanes for desktop: absolute positioned */
 .lane {
   position: absolute;
   width: 100px;
@@ -384,6 +385,7 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
 .lane:nth-child(3) { left: 200px; }
 .lane:nth-child(4) { left: 300px; border-right: none; }
 
+/* Hit line */
 .hit-line {
   position: absolute;
   bottom: 80px;
@@ -393,6 +395,7 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   box-shadow: 0 0 10px #ff6b6b;
 }
 
+/* Notes */
 .note {
   position: absolute;
   width: 80px;
@@ -409,6 +412,7 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   background: linear-gradient(45deg, #ffd93d, #ff6b6b);
 }
 
+/* Buttons */
 .lane-button {
   position: absolute;
   bottom: 20px;
@@ -424,8 +428,11 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   transition: all 0.1s;
 }
 
-.lane-button.flash { animation: buttonFlash 0.2s ease-out; }
+.lane-button.flash {
+  animation: buttonFlash 0.2s ease-out;
+}
 
+/* Score and instructions */
 #score {
   font-size: 24px;
   margin-bottom: 10px;
@@ -439,7 +446,59 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   color: #556b7a;
 }
 
-/* ===== UTILITY CLASSES ===== */
+
+/* ===== Responsive styles for screen width <= 800px ===== */
+@media (max-width: 800px) {
+  #gameContainer {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .lane {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid #444;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .lane:nth-child(1) { left: 0%; }
+  .lane:nth-child(2) { left: 25%; }
+  .lane:nth-child(3) { left: 50%; }
+  .lane:nth-child(4) { left: 75%; border-right: none; }
+
+  .note {
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 12px;
+  }
+
+  /* Buttons scaled for smaller screens */
+  .lane-button {
+    width: 80%;
+    height: 8%;
+    left: 10%;
+    bottom: 5%;
+    font-size: 0.9em;
+  }
+
+  /* Hit line smaller and raised */
+  .hit-line {
+    bottom: 15%;
+    height: 0.5%;
+  }
+
+  #score {
+    font-size: 4vw;
+  }
+
+  #instructions {
+    font-size: 3vw;
+  }
+}
+
+
 .floating-note {
   position: absolute;
   width: 80px;

@@ -150,37 +150,32 @@ if (allpages.length > 0) {
     hideall();
 }
 
-
-
 // Rhythm Game
 let points = 0;
 let balls = [];
+const lanes = document.querySelectorAll('.lane'); // cache lanes
 
-// Create a ball
+// Create a ball (note)
 function makeBall() {
   let ball = document.createElement('div');
   ball.className = 'note';
   ball.lane = Math.floor(Math.random() * 4);
-  ball.style.left = (ball.lane * 100 + 10) + 'px';
-  ball.style.top = '0px';
+  ball.style.top = '0%'; // use percentage for vertical position
 
-  // Adds a new html child element called ball to the parent (gameContainer)
-  document.getElementById('gameContainer').appendChild(ball);
+  // Append the note inside the correct lane (relative positioning)
+  lanes[ball.lane].appendChild(ball);
 
-  //  Adds a new item (ball) to the end of the balls array.
   balls.push(ball);
 }
 
 // Move balls down
 function moveBalls() {
   balls.forEach(function(ball, i) {
-    ball.style.top = parseInt(ball.style.top) + 8 + 'px';
-    if (parseInt(ball.style.top) > 600) {
+    let currentTop = parseFloat(ball.style.top) || 0;
+    ball.style.top = (currentTop + 1.35) + '%'; // move % down per tick
 
-    // Removes the HTML element (ball) from the DOM (the webpage structure).
+    if (currentTop > 100) {
       ball.remove();
-
-      // removes 1 item from the balls array at position i.
       balls.splice(i, 1);
     }
   });
@@ -191,15 +186,17 @@ function hit(lane) {
   // Flash button
   let button = document.querySelectorAll('.lane-button')[lane];
   button.style.background = 'red';
-  setTimeout(function() { button.style.background = ''; }, 100);
+  setTimeout(() => { button.style.background = ''; }, 100);
 
   // Check for hits
   balls.forEach(function(ball, i) {
-    let top = parseInt(ball.style.top);
-    if (ball.lane === lane && top > 480 && top < 560) {
+    let top = parseFloat(ball.style.top);
+    // Adjust these numbers to your hit line position (in %)
+    if (ball.lane === lane && top > 80 && top < 90) {
       points += 100;
       document.getElementById('score').textContent = 'Points: ' + points;
-      ball.remove();
+      ball.classList.add('hit');
+      setTimeout(() => ball.remove(), 100);
       balls.splice(i, 1);
     }
   });
@@ -213,14 +210,15 @@ document.onkeydown = function(e) {
   if (e.key === 'k') hit(3);
 };
 
-// For each button (btn), sets up a click handler that calls hit(i) with its index
+// Button click handlers
 document.querySelectorAll('.lane-button').forEach(function(btn, i) {
   btn.onclick = function() { hit(i); };
 });
 
-// Start game
+// Start game loops
 setInterval(moveBalls, 20);
 setInterval(makeBall, 1000);
+
 
 
 // FLIP CARDS

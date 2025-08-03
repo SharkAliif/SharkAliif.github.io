@@ -629,7 +629,7 @@ details[open] summary {
   }
 
   .hit-line {
-    bottom: 15%;
+    bottom: 16%;
     height: 0.5%;
   }
 
@@ -755,7 +755,6 @@ ol li {
   margin-bottom: 0.5em;
 }
 
-/* FOOTER */
 footer {
   margin-top: 50px;
   padding: 30px 25px;

@@ -190,7 +190,7 @@ function moveNotes() {
     for (let i = 0; i < notes.length; i++) {
         let note = notes[i];
         let top = parseFloat(note.style.top);
-        top += 1.5;
+        top += 1.35;
         note.style.top = top + '%';
 
         if (top > 100) {

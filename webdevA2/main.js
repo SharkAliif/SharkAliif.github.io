@@ -29,6 +29,7 @@ var CorrectAnswers = {
     q20: "String crossing"
 };
 
+
 // Audio files for violin sounds
 var ViolinVibrato = new Audio("audio/ViolinArcoVibratoAudio.mp3");
 var ViolinNoVibrato = new Audio("audio/ViolinArcoNoVibratoAudio.mp3");
@@ -148,6 +149,55 @@ if (page5btn) page5btn.addEventListener("click", function () { show(5); });
 if (allpages.length > 0) {
     hideall();
 }
+
+if (page1btn) {
+  page1btn.addEventListener("click", function () {
+    show(1);
+    clearClicked();
+    page1btn.classList.add("CurrentlyClicked");
+  });
+}
+
+if (page2btn) {
+  page2btn.addEventListener("click", function () {
+    show(2);
+    clearClicked();
+    page2btn.classList.add("CurrentlyClicked");
+  });
+}
+
+if (page3btn) {
+  page3btn.addEventListener("click", function () {
+    show(3);
+    clearClicked();
+    page3btn.classList.add("CurrentlyClicked");
+  });
+}
+
+if (page4btn) {
+  page4btn.addEventListener("click", function () {
+    show(4);
+    clearClicked();
+    page4btn.classList.add("CurrentlyClicked");
+  });
+}
+
+if (page5btn) {
+  page5btn.addEventListener("click", function () {
+    show(5);
+    clearClicked();
+    page5btn.classList.add("CurrentlyClicked");
+  });
+}
+
+function clearClicked() {
+  if (page1btn) page1btn.classList.remove("CurrentlyClicked");
+  if (page2btn) page2btn.classList.remove("CurrentlyClicked");
+  if (page3btn) page3btn.classList.remove("CurrentlyClicked");
+  if (page4btn) page4btn.classList.remove("CurrentlyClicked");
+  if (page5btn) page5btn.classList.remove("CurrentlyClicked");
+}
+
 
 const btnFS=document.querySelector("#btnFS");
  const btnWS=document.querySelector("#btnWS");

@@ -1,4 +1,4 @@
-// Object containing all correct answers for the quiz
+
 var CorrectAnswers = {
     // EASY (1–5)
     q1: "4",
@@ -34,25 +34,24 @@ var ViolinVibrato = new Audio("audio/ViolinArcoVibratoAudio.mp3");
 var ViolinNoVibrato = new Audio("audio/ViolinArcoNoVibratoAudio.mp3");
 var ViolinPizz = new Audio("audio/ViolinPizzicatoAudio.mp3");
 
-if (document.getElementById("Vibrato")) {
-    document.getElementById("Vibrato").addEventListener("click", function () {
-        ViolinVibrato.play();
-    });
-}
+const violinSoundsDiv = document.querySelector('.ViolinSounds');
 
-if (document.getElementById("NoVibrato")) {
-    document.getElementById("NoVibrato").addEventListener("click", function () {
-        ViolinNoVibrato.play();
-    });
-}
+violinSoundsDiv.addEventListener('click', function (event) {
+    const clicked = event.target;
 
-if (document.getElementById("Pizz")) {
-    document.getElementById("Pizz").addEventListener("click", function () {
-        ViolinPizz.play();
-    });
-}
+    if (clicked.tagName === 'BUTTON') {
+        if (clicked.id === 'Vibrato') {
+            ViolinVibrato.play();
+        } else if (clicked.id === 'NoVibrato') {
+            ViolinNoVibrato.play();
+        } else if (clicked.id === 'Pizz') {
+            ViolinPizz.play();
+        }
+    }
+});
 
-// QUIZ FUNCTIONALITY
+
+
 const btnSubmit = document.querySelector("#btnSubmit");
 const scorebox = document.querySelector("#scorebox");
 let quizScore = 0;
@@ -77,7 +76,7 @@ function CheckAns() {
 
         // Score coloring
         if (quizScore <= 10) scorebox.style.color = "red";
-        else if (quizScore <= 20) scorebox.style.color = "orange";
+        else if (quizScore <= 15) scorebox.style.color = "orange";
         else scorebox.style.color = "green";
     }
 }
@@ -101,7 +100,7 @@ if (btnSubmit) {
     btnSubmit.addEventListener("click", CheckAns);
 }
 
-// HAMBURGER MENU
+// hamburger menu
 var hamBtn = document.querySelector("#hamIcon");
 var menuItemsList = document.querySelector("nav ul");
 
@@ -150,74 +149,163 @@ if (allpages.length > 0) {
     hideall();
 }
 
-// Rhythm Game
 let points = 0;
-let balls = [];
-const lanes = document.querySelectorAll('.lane'); // cache lanes
+let lives = 3;
+let notes = [];
+let isGameRunning = false;
+let gameInterval;
+let noteInterval;
 
-// Create a ball (note)
-function makeBall() {
-  let ball = document.createElement('div');
-  ball.className = 'note';
-  ball.lane = Math.floor(Math.random() * 4);
-  ball.style.top = '0%'; // use percentage for vertical position
+const lanes = document.querySelectorAll('.lane');
+const buttons = document.querySelectorAll('.lane-button');
+const scoreText = document.getElementById('score');
+const livesText = document.getElementById('lives');
+const startBtn = document.getElementById('startBtn');
 
-  // Append the note inside the correct lane (relative positioning)
-  lanes[ball.lane].appendChild(ball);
-
-  balls.push(ball);
+// Setup display
+function initGame() {
+    scoreText.textContent = 'Points: 0';
+    livesText.textContent = 'Lives: 3';
 }
 
-// Move balls down
-function moveBalls() {
-  balls.forEach(function(ball, i) {
-    let currentTop = parseFloat(ball.style.top) || 0;
-    ball.style.top = (currentTop + 1.35) + '%'; // move % down per tick
+// Create one falling note
+function createNote() {
+    if (!isGameRunning) return;
 
-    if (currentTop > 100) {
-      ball.remove();
-      balls.splice(i, 1);
+    let note = document.createElement('div');
+    note.className = 'note';
+
+    let lane = Math.floor(Math.random() * 4);
+    note.laneIndex = lane;
+    note.style.top = '0%';
+
+    lanes[lane].appendChild(note);
+    notes.push(note);
+}
+
+// Move all notes down
+function moveNotes() {
+    if (!isGameRunning) return;
+
+    for (let i = 0; i < notes.length; i++) {
+        let note = notes[i];
+        let top = parseFloat(note.style.top);
+        top += 1.5;
+        note.style.top = top + '%';
+
+        if (top > 100) {
+            note.remove();
+            
+            //  removes the note at index i from the notes array to prevent it from being tracked invisibly again.
+            notes.splice(i, 1); 
+            i--;
+            loseLife();
+        }
     }
-  });
 }
 
-// Handle hits
-function hit(lane) {
-  // Flash button
-  let button = document.querySelectorAll('.lane-button')[lane];
-  button.style.background = 'red';
-  setTimeout(() => { button.style.background = ''; }, 100);
+// Lose one life
+function loseLife() {
+    lives--;
+    livesText.textContent = 'Lives: ' + lives;
 
-  // Check for hits
-  balls.forEach(function(ball, i) {
-    let top = parseFloat(ball.style.top);
-    // Adjust these numbers to your hit line position (in %)
-    if (ball.lane === lane && top > 80 && top < 90) {
-      points += 100;
-      document.getElementById('score').textContent = 'Points: ' + points;
-      ball.classList.add('hit');
-      setTimeout(() => ball.remove(), 100);
-      balls.splice(i, 1);
+    if (lives <= 0) {
+        gameOver();
     }
-  });
 }
 
-// Keyboard controls
-document.onkeydown = function(e) {
-  if (e.key === 'd') hit(0);
-  if (e.key === 'f') hit(1);
-  if (e.key === 'j') hit(2);
-  if (e.key === 'k') hit(3);
-};
+// Game over
+function gameOver() {
+    stopGame();
+    alert('Game Over! Score: ' + points);
+}
 
-// Button click handlers
-document.querySelectorAll('.lane-button').forEach(function(btn, i) {
-  btn.onclick = function() { hit(i); };
+// press
+function hitLane(index) {
+    if (!isGameRunning) return;
+
+    // Add glow effect
+    const btn = buttons[index];
+    btn.classList.add('glow', `lane-${index}`);
+    setTimeout(() => {
+        btn.classList.remove('glow', `lane-${index}`);
+    }, 150);
+
+    for (let i = 0; i < notes.length; i++) {
+        let note = notes[i];
+        let top = parseFloat(note.style.top);
+
+        if (note.laneIndex === index && top > 80 && top < 90) {
+            points += 100;
+            scoreText.textContent = 'Points: ' + points;
+            note.remove();
+            notes.splice(i, 1);
+            break;
+        }
+    }
+}
+
+
+// Start game
+function startGame() {
+    if (isGameRunning) return;
+
+    points = 0;
+    lives = 3;
+    notes.forEach(function (n) { n.remove(); });
+    notes = [];
+
+    scoreText.textContent = 'Points: 0';
+    livesText.textContent = 'Lives: 3';
+    startBtn.textContent = 'Stop';
+
+    isGameRunning = true;
+    gameInterval = setInterval(moveNotes, 20);
+    noteInterval = setInterval(createNote, 1000);
+}
+
+// Stop game
+function stopGame() {
+    if (!isGameRunning) return;
+
+    isGameRunning = false;
+    clearInterval(gameInterval);
+    clearInterval(noteInterval);
+    startBtn.textContent = 'Start';
+}
+
+// Toggle game
+function toggleGame() {
+    if (isGameRunning) stopGame();
+    else startGame();
+}
+
+// Keyboard
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'd') hitLane(0);
+    if (e.key === 'f') hitLane(1);
+    if (e.key === 'j') hitLane(2);
+    if (e.key === 'k') hitLane(3);
 });
 
-// Start game loops
-setInterval(moveBalls, 20);
-setInterval(makeBall, 1000);
+// Mouse click
+document.getElementById('gameContainer').addEventListener('click', function (e) {
+    if (e.target.classList.contains('lane-button')) {
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i] === e.target) {
+                hitLane(i);
+                break;
+            }
+        }
+    }
+});
+
+// Start button
+startBtn.addEventListener('click', toggleGame);
+
+// Init
+initGame();
+
 
 
 

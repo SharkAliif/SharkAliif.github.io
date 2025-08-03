@@ -6,10 +6,13 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json" />
   <link href="style.css" rel="stylesheet">
   <script src="main.js" defer></script>
   <title>String Instruments</title>
 </head>
+
+
 
 <body>
   <nav class="navigation">
@@ -87,27 +90,50 @@
       </div>
     </div>
 
-    <h2>String Instruments around the world</h2>
-    <p>There are thousands of String Instruments from around the world.
-      Click on Countries on the world map to find out what Instruments originally from there!</p>
-    <img id="ImageMap" src="images/" title="ImageMap of the Earth"
-      alt="World Map of String Instruments Around the world">
+    <p>There are thousands of string instruments from around the world. Each culture has developed unique ways to create
+      music through vibrating strings!</p>
 
-    <h2>History and Culture of String Instruments</h2>
-    <P>String Instruments have been around for thousands of years and has been a crucial symbol for Cultures. Find out
-      with the Timeline!</P>
+    <h2>Basic String Instrument Facts</h2>
+    <div>
+      <h3>🎻 Standard Violin Specifications</h3>
+      <p>Strings: A standard violin has 4 strings tuned to G-D-A-E (from lowest to highest)</p>
+      <p>Tuning: All string instruments tune to the 'A' note, typically at 440 Hz (sometimes 442 Hz for orchestras, or
+        415 Hz for baroque music)</p>
+      <p>Family Size Order: Violin → Viola → Cello → Double Bass (largest)</p>
+    </div>
 
-    <h2>Uses and genres around the world </h2>
-    <p>String Instruments are widely used around the world with various playing styles and genres.
-      In fact, most do! Some Common Genres include:</p>
+    <h2>Guitar Basics</h2>
+    <div>
+      <p>Standard Guitar Tuning: EADGBE (from lowest/thickest string to highest/thinnest)</p>
+      <p>String Count: Standard guitars have 6 strings, but some have 12 strings or more!</p>
+      <p>Tuning Method: Unlike violins (tuned in fifths), guitars are tuned in fourths</p>
+    </div>
+
+    <h2>Playing Techniques</h2>
+    <div>
+      <h3>Pizzicato</h3>
+      <p>Plucking the strings with fingers instead of using a bow. Creates a sharp, percussive sound.</p>
+    </div>
+
+    <div>
+      <h3>Arco</h3>
+      <p>Playing with a bow - the standard technique for violin family instruments.</p>
+    </div>
+
+    <h2>Uses and Genres Around the World</h2>
+    <p>String instruments are widely used around the world with various playing styles and genres:</p>
     <ul>
       <li>Classical</li>
       <li>Pop</li>
       <li>Folk</li>
       <li>Jazz</li>
-      <li>And even more!</li>
+      <li>Mariachi (featuring the Guitarrón as bass instrument)</li>
+      <li>Indian Classical</li>
+      <li>Celtic</li>
+      <li>And many more!</li>
     </ul>
-    <footer>Lab02 Aliif 252292L </footer>
+
+    <footer>Lab02 Aliif 252292L</footer>
   </div>
 
   <!-- How It Works -->
@@ -130,7 +156,7 @@
       some even don't even have a body like an Electric Violin!
       This is because they can amplify sound using an amp!</p>
 
-    <div class="sprite"></div>
+    <div class="sprite" alt="textsprite" title="textsprite"></div>
 
     <h3>Tuning pitches (A = 442 Hz / 440 Hz / 415 Hz), EADGBE (Guitar)</h3>
     <p> String Instruments are generally tuned to a certain pitch (Hz).
@@ -237,9 +263,6 @@
     <p class="Fact">💡 High-end violins (e.g., Stradivarius) can use premium materials costing thousands just in raw
       form.</p>
 
-    <br>
-    <br>
-
     <h3>Traditional vs Modern style</h3>
 
     <h3>🔨 Step by Step to Make a Violin</h3>
@@ -264,315 +287,330 @@
   </div>
 
   <div id="page4" class="page">
-    <h2>History and Culture</h2>
+  <h2>History and Culture</h2>
 
-    <section class="instrument-category">
+  <div class="global-grid">
+    <!-- First row - 3 columns -->
+    <section class="grid-section instrument-category">
       <h2>1. The Violin Family</h2>
-
+      
       <article>
         <h3>Origins & Development</h3>
-        <p>Early Ancestors: The violin evolved from earlier bowed instruments like the rebec (Medieval Europe) and the
-          lira da braccio (Renaissance Italy).</p>
-        <p>Modern Violin: The first true violins appeared in 16th-century Italy, crafted by luthiers like Andrea Amati
-          (Cremona). Antonio Stradivari later perfected the design, creating legendary Stradivarius violins.</p>
-      </article>
-
-      <article>
-        <h3>Cultural Impact</h3>
-        <ul>
-          <li>Central to Baroque, Classical, and Romantic music (Vivaldi, Bach, Paganini)</li>
-          <li>Used in folk traditions (Irish fiddling, Gypsy jazz, Indian classical fusion)</li>
-        </ul>
-      </article>
-
-      <article>
-        <h3>Related Instruments</h3>
-        <ul class="instrument-list">
-          <li>Viola, Cello, Double Bass: Larger members of the violin family with deeper tones</li>
-          <li>Erhu (China): A two-stringed bowed instrument with a haunting sound</li>
-        </ul>
+        <p>Early Ancestors: The violin evolved from earlier bowed instruments like the rebec (Medieval Europe) and the lira da braccio (Renaissance Italy).</p>
+        <p>Modern Violin: The first true violins appeared in 16th-century Italy, crafted by luthiers like Andrea Amati (Cremona). Antonio Stradivari later perfected the design, creating legendary Stradivarius violins in Italy.</p>
       </article>
     </section>
 
-    <section class="instrument-category">
-      <h2>2. The Piano: A String-Keyboard Hybrid</h2>
-
+    <section class="grid-section instrument-category">
+      <h2>2. The Piano</h2>
+      
       <article>
         <h3>Invention & Evolution</h3>
         <p>Predecessors: The harpsichord (plucked strings) and clavichord (struck strings).</p>
         <p>Bartolomeo Cristofori (1700): Invented the pianoforte in Italy, allowing dynamic control (soft/loud).</p>
-        <p>Romantic Era: Pianos grew larger (e.g., Steinway & Sons) for greater volume and expression (Chopin, Liszt).
-        </p>
       </article>
+    </section>
 
+    <section class="grid-section instrument-category">
+      <h2>3. Global Instruments</h2>
+      
       <article>
-        <h3>Cultural Significance</h3>
+        <h3>Cultural Impact</h3>
         <ul>
-          <li>Classical Music: Essential for composers like Mozart, Beethoven, and Bach</li>
-          <li>Jazz & Pop: From ragtime (Scott Joplin) to modern artists (Elton John, Alicia Keys)</li>
+          <li>Central to Baroque, Classical, and Romantic music</li>
+          <li>Used in folk traditions worldwide</li>
         </ul>
       </article>
     </section>
+  </div>
 
-    <section class="instrument-category">
-      <h2>3. Global String Instruments</h2>
-
-      <div class="global-grid">
-        <article class="region-card">
-          <h3>Europe</h3>
-          <ul>
-            <li>Harp: Ancient origins (Egypt, Mesopotamia), key in Celtic and orchestral music</li>
-            <li>Lute & Guitar: The lute (Renaissance) evolved into the modern guitar</li>
-          </ul>
-        </article>
-
-        <article class="region-card">
-          <h3>Asia</h3>
-          <ul>
-            <li>Sitar (India): Plucked string instrument with sympathetic strings</li>
-            <li>Koto (Japan): 13-string zither used in traditional gagaku</li>
-          </ul>
-        </article>
-
-        <article class="region-card">
-          <h3>Middle East & Africa</h3>
-          <ul>
-            <li>Oud: Fretless lute used in Arabic music</li>
-            <li>Kora (West Africa): 21-string harp-lute played by griots</li>
-          </ul>
-        </article>
-
-        <article class="region-card">
-          <h3>Americas</h3>
-          <ul>
-            <li>Banjo: Developed from African instruments, key in bluegrass</li>
-            <li>Charango (Andes): Small guitar made from an armadillo shell</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="instrument-category">
-      <h2>4. Status and Power</h2>
-      <p>In some societies, owning or playing certain string instruments signifies social status or power.</p>
-      <ul class="cultural-roles">
-        <li>In Renaissance Europe, lute playing was associated with nobility.</li>
-        <li>In Africa, kora players are often respected griots (historians and storytellers).</li>
+  <!-- Second row - 3 columns -->
+  <div class="global-grid">
+    <section class="grid-section instrument-category">
+      <h3>Violin Cultural Impact</h3>
+      <ul>
+        <li>Vivaldi, Bach, Paganini</li>
+        <li>Irish fiddling, Gypsy jazz</li>
       </ul>
     </section>
 
-    <h3>Fun Facts</h3>
-    <p>🎻 The violin has been around for over 400 years!<br>
-      🎶 A piano is actually a string instrument!<br>
-      🪕 Some guitars have 12 strings!</p>
+    <section class="grid-section instrument-category">
+      <h3>Piano Significance</h3>
+      <ul>
+        <li>Mozart, Beethoven, Bach</li>
+        <li>Jazz & Pop: Joplin to Alicia Keys</li>
+      </ul>
+    </section>
 
-    <footer>Lab02 Aliif 252292L </footer>
+    <section class="grid-section instrument-category">
+      <h3>Related Instruments</h3>
+      <ul>
+        <li>Viola, Cello, Double Bass</li>
+        <li>Erhu (China)</li>
+      </ul>
+    </section>
   </div>
+
+  <!-- World Instruments Section -->
+  <h2 class="section-title">Global String Instruments</h2>
+  
+  <div class="global-grid">
+    <article class="grid-section instrument-card">
+      <h3>Europe</h3>
+      <ul>
+        <li>Harp: Ancient origins (Egypt, Mesopotamia)</li>
+        <li>Lute & Guitar: Renaissance to modern</li>
+      </ul>
+    </article>
+
+    <article class="grid-section instrument-card">
+      <h3>Asia</h3>
+      <ul>
+        <li>Sitar (India): With sympathetic strings</li>
+        <li>Koto (Japan): 13-string zither</li>
+      </ul>
+    </article>
+
+    <article class="grid-section instrument-card">
+      <h3>Middle East & Africa</h3>
+      <ul>
+        <li>Oud: Fretless lute</li>
+        <li>Kora: 21-string harp-lute</li>
+      </ul>
+    </article>
+  </div>
+
+  <!-- Final row -->
+  <div class="global-grid">
+    <section class="grid-section instrument-category">
+      <h3>Status and Power</h3>
+      <p>In some societies, instruments signify social status.</p>
+      <ul>
+        <li>Renaissance lute players were nobility</li>
+        <li>African kora players as griots</li>
+      </ul>
+    </section>
+
+    <section class="grid-section fun-fact">
+      <h3>Fun Facts</h3>
+      <p>🎻 Violin: 400+ years!<br>
+         🎶 Piano is a string instrument!<br>
+         🪕 12-string guitars exist!</p>
+    </section>
+  </div>
+
+  <footer>Lab02 Aliif 252292L</footer>
+</div>
 
   <!--  Miscellaneous and more MiniGames -->
   <div id="page5" class="page">
     <h2>Miscellaneous and more MiniGames</h2>
 
-    <h3 id="quizForm">🎵 String Instruments Quiz 🎵</h3>
+    <h3 id="quizForm">String Instruments Quiz</h3>
 
     <!-- Easy (10 Questions - 2 Options Each) -->
     <details>
-        <summary>🔹 Basics (Easy - 5 Questions)</summary>
+      <summary> ~ Basics (Easy - 5 Questions)</summary>
 
-        <fieldset>
-            <legend>1. How many strings on a standard violin?</legend>
-            <label><input type="radio" name="q1" value="6"> 6</label>
-            <label><input type="radio" name="q1" value="4"> 4</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>1. How many strings on a standard violin?</legend>
+        <label><input type="radio" name="q1" value="6"> 6</label>
+        <label><input type="radio" name="q1" value="4"> 4</label> <!-- Correct -->
+      </fieldset>
 
-        <fieldset>
-            <legend>2. Largest violin family instrument?</legend>
-            <label><input type="radio" name="q2" value="Cello"> Cello</label>
-            <label><input type="radio" name="q2" value="Double Bass"> Double Bass</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>2. Largest violin family instrument?</legend>
+        <label><input type="radio" name="q2" value="Cello"> Cello</label>
+        <label><input type="radio" name="q2" value="Double Bass"> Double Bass</label> <!-- Correct -->
+      </fieldset>
 
-        <fieldset>
-            <legend>3. Plucking strings technique is called:</legend>
-            <label><input type="radio" name="q3" value="Pizzicato"> Pizzicato</label> <!-- Correct -->
-            <label><input type="radio" name="q3" value="Arco"> Arco</label>
-        </fieldset>
+      <fieldset>
+        <legend>3. Plucking strings technique is called:</legend>
+        <label><input type="radio" name="q3" value="Pizzicato"> Pizzicato</label> <!-- Correct -->
+        <label><input type="radio" name="q3" value="Arco"> Arco</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>4. Guitar standard tuning?</legend>
-            <label><input type="radio" name="q4" value="GDAEBF"> GDAEBF</label>
-            <label><input type="radio" name="q4" value="EADGBE"> EADGBE</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>4. Guitar standard tuning?</legend>
+        <label><input type="radio" name="q4" value="GDAEBF"> GDA EBF</label>
+        <label><input type="radio" name="q4" value="EADGBE"> EAD GBE</label> <!-- Correct -->
+      </fieldset>
 
-        <fieldset>
-            <legend>5. Rosin is used to:</legend>
-            <label><input type="radio" name="q5" value="Clean wood"> Clean the instrument</label>
-            <label><input type="radio" name="q5" value="Grip strings"> Make bow hair grip strings</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>5. Rxosin is used to:</legend>
+        <label><input type="radio" name="q5" value="Clean wood"> Clean the instrument</label>
+        <label><input type="radio" name="q5" value="Grip strings"> Make bow hair grip strings</label> <!-- Correct -->
+      </fieldset>
     </details>
 
     <!-- Medium (5 Questions) -->
     <details>
-        <summary><strong>🔹 Violin Family & Techniques (Medium - 5 Questions)</strong></summary>
+      <summary> ~ String Family & Techniques (Medium - 5 Questions)</summary>
 
-        <fieldset>
-            <legend>6. Violin top plate wood?</legend>
-            <label><input type="radio" name="q6" value="Maple"> Maple</label>
-            <label><input type="radio" name="q6" value="Spruce"> Spruce</label> <!-- Correct -->
-            <label><input type="radio" name="q6" value="Ebony"> Ebony</label>
-        </fieldset>
+      <fieldset>
+        <legend>6. Violin top plate wood?</legend>
+        <label><input type="radio" name="q6" value="Maple"> Maple</label>
+        <label><input type="radio" name="q6" value="Spruce"> Spruce</label> <!-- Correct -->
+        <label><input type="radio" name="q6" value="Ebony"> Ebony</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>7. Purpose of violin bridge?</legend>
-            <label><input type="radio" name="q7" value="Decoration"> Decoration</label>
-            <label><input type="radio" name="q7" value="String spacing"> String spacing</label>
-            <label><input type="radio" name="q7" value="Transmit vibrations"> Transmit vibrations to body</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>7. Purpose of violin bridge?</legend>
+        <label><input type="radio" name="q7" value="Decoration"> Decoration</label>
+        <label><input type="radio" name="q7" value="String spacing"> String spacing</label>
+        <label><input type="radio" name="q7" value="Transmit vibrations"> Transmit vibrations to body</label>
+        <!-- Correct -->
+      </fieldset>
 
-        <fieldset>
-            <legend>8. Vibrato is:</legend>
-            <label><input type="radio" name="q8" value="Varying pressure"> Varying pressure</label>
-            <label><input type="radio" name="q8" value="Pitch oscillation"> Oscillating finger to vary pitch</label> <!-- Correct -->
-            <label><input type="radio" name="q8" value="Fast plucking"> Fast plucking</label>
-        </fieldset>
+      <fieldset>
+        <legend>8. Vibrato is:</legend>
+        <label><input type="radio" name="q8" value="Varying pressure"> Varying pressure</label>
+        <label><input type="radio" name="q8" value="Pitch oscillation"> Oscillating finger to vary pitch</label>
+        <!-- Correct -->
+        <label><input type="radio" name="q8" value="Fast plucking"> Fast plucking</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>9. Which is NOT a violin part?</legend>
-            <label><input type="radio" name="q9" value="Fretboard"> Fretboard</label> <!-- Correct -->
-            <label><input type="radio" name="q9" value="Chinrest"> Chinrest</label>
-            <label><input type="radio" name="q9" value="Tailpiece"> Tailpiece</label>
-        </fieldset>
+      <fieldset>
+        <legend>9. Which is NOT a violin part?</legend>
+        <label><input type="radio" name="q9" value="Fretboard"> Fretboard</label> <!-- Correct -->
+        <label><input type="radio" name="q9" value="Chinrest"> Chinrest</label>
+        <label><input type="radio" name="q9" value="Tailpiece"> Tailpiece</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>10. Bow hair material?</legend>
-            <label><input type="radio" name="q10" value="Horsehair"> Horsehair</label> <!-- Correct -->
-            <label><input type="radio" name="q10" value="Plastic"> Plastic</label>
-            <label><input type="radio" name="q10" value="Wire"> Wire</label>
-        </fieldset>
+      <fieldset>
+        <legend>10. Bow hair material?</legend>
+        <label><input type="radio" name="q10" value="Horsehair"> Horsehair</label> <!-- Correct -->
+        <label><input type="radio" name="q10" value="Plastic"> Plastic</label>
+        <label><input type="radio" name="q10" value="Wire"> Wire</label>
+      </fieldset>
     </details>
 
     <!-- Hard (5 Questions) -->
     <details>
-        <summary><strong>🔹 History & World Instruments (Hard - 5 Questions)</strong></summary>
+      <summary> ~ History & World Instruments (Hard - 5 Questions)</summary>
 
-        <fieldset>
-            <legend>11. Stradivarius violins originated in:</legend>
-            <label><input type="radio" name="q11" value="Germany"> Germany</label>
-            <label><input type="radio" name="q11" value="France"> France</label>
-            <label><input type="radio" name="q11" value="Italy"> Italy</label> <!-- Correct -->
-            <label><input type="radio" name="q11" value="Austria"> Austria</label>
-        </fieldset>
+      <fieldset>
+        <legend>11. Stradivarius violins originated in:</legend>
+        <label><input type="radio" name="q11" value="Germany"> Germany</label>
+        <label><input type="radio" name="q11" value="France"> France</label>
+        <label><input type="radio" name="q11" value="Italy"> Italy</label> <!-- Correct -->
+        <label><input type="radio" name="q11" value="Austria"> Austria</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>12. Shamisen comes from:</legend>
-            <label><input type="radio" name="q12" value="China"> China</label>
-            <label><input type="radio" name="q12" value="India"> India</label>
-            <label><input type="radio" name="q12" value="Japan"> Japan</label> <!-- Correct -->
-            <label><input type="radio" name="q12" value="Korea"> Korea</label>
-        </fieldset>
+      <fieldset>
+        <legend>12. Shamisen comes from:</legend>
+        <label><input type="radio" name="q12" value="China"> China</label>
+        <label><input type="radio" name="q12" value="India"> India</label>
+        <label><input type="radio" name="q12" value="Japan"> Japan</label> <!-- Correct -->
+        <label><input type="radio" name="q12" value="Korea"> Korea</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>13. Koto is a:</legend>
-            <label><input type="radio" name="q13" value="Chinese fiddle"> Chinese bowed instrument</label>
-            <label><input type="radio" name="q13" value="Japanese flute"> Japanese wind instrument</label>
-            <label><input type="radio" name="q13" value="Japanese zither"> Japanese plucked zither</label> <!-- Correct -->
-            <label><input type="radio" name="q13" value="Thai gong"> Thai percussion instrument</label>
-        </fieldset>
+      <fieldset>
+        <legend>13. Koto is a:</legend>
+        <label><input type="radio" name="q13" value="Chinese fiddle"> Chinese bowed instrument</label>
+        <label><input type="radio" name="q13" value="Japanese flute"> Japanese wind instrument</label>
+        <label><input type="radio" name="q13" value="Japanese zither"> Japanese plucked zither</label> <!-- Correct -->
+        <label><input type="radio" name="q13" value="Thai gong"> Thai percussion instrument</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>14. Erhu resonator uses:</legend>
-            <label><input type="radio" name="q14" value="Python skin"> Python skin</label> <!-- Correct -->
-            <label><input type="radio" name="q14" value="Cow leather"> Cow leather</label>
-            <label><input type="radio" name="q14" value="Wood"> Wood</label>
-            <label><input type="radio" name="q14" value="Metal"> Metal</label>
-        </fieldset>
+      <fieldset>
+        <legend>14. Erhu resonator uses:</legend>
+        <label><input type="radio" name="q14" value="Python skin"> Python skin</label> <!-- Correct -->
+        <label><input type="radio" name="q14" value="Cow leather"> Cow leather</label>
+        <label><input type="radio" name="q14" value="Wood"> Wood</label>
+        <label><input type="radio" name="q14" value="Metal"> Metal</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>15. Mariachi bass instrument:</legend>
-            <label><input type="radio" name="q15" value="Guitarrón"> Guitarrón</label> <!-- Correct -->
-            <label><input type="radio" name="q15" value="Viola"> Viola</label>
-            <label><input type="radio" name="q15" value="Guitar"> Guitar</label>
-            <label><input type="radio" name="q15" value="Double bass"> Double bass</label>
-        </fieldset>
+      <fieldset>
+        <legend>15. Mariachi bass instrument:</legend>
+        <label><input type="radio" name="q15" value="Guitarrón"> Guitarrón</label> <!-- Correct -->
+        <label><input type="radio" name="q15" value="Viola"> Viola</label>
+        <label><input type="radio" name="q15" value="Guitar"> Guitar</label>
+        <label><input type="radio" name="q15" value="Double bass"> Double bass</label>
+      </fieldset>
     </details>
 
     <!-- Extreme (5 Questions) -->
     <details>
-        <summary><strong>🔹 Advanced Techniques & Trivia (Extreme - 5 Questions)</strong></summary>
+      <summary> ~ Advanced Techniques & Trivia (Extreme - 5 Questions)</summary>
 
-        <fieldset>
-            <legend>16. Wolf tone eliminator fixes:</legend>
-            <label><input type="radio" name="q16" value="Peg slippage"> Peg slippage</label>
-            <label><input type="radio" name="q16" value="String buzzing"> String buzzing</label>
-            <label><input type="radio" name="q16" value="Bridge tilt"> Bridge tilt</label>
-            <label><input type="radio" name="q16" value="String breakage"> String breakage</label>
-            <label><input type="radio" name="q16" value="Acoustic howling"> Unwanted acoustic howling</label> <!-- Correct -->
-        </fieldset>
+      <fieldset>
+        <legend>16. Wolf tone eliminator fixes:</legend>
+        <label><input type="radio" name="q16" value="Peg slippage"> Peg slippage</label>
+        <label><input type="radio" name="q16" value="String buzzing"> String buzzing</label>
+        <label><input type="radio" name="q16" value="Bridge tilt"> Bridge tilt</label>
+        <label><input type="radio" name="q16" value="String breakage"> String breakage</label>
+        <label><input type="radio" name="q16" value="Acoustic howling"> Unwanted acoustic howling</label>
+        <!-- Correct -->
+      </fieldset>
 
-        <fieldset>
-            <legend>17. Baroque violin strings were made of:</legend>
-            <label><input type="radio" name="q17" value="Silk"> Silk</label>
-            <label><input type="radio" name="q17" value="Steel"> Steel</label>
-            <label><input type="radio" name="q17" value="Gut"> Gut</label> <!-- Correct -->
-            <label><input type="radio" name="q17" value="Nylon"> Nylon</label>
-            <label><input type="radio" name="q17" value="Wire"> Wire</label>
-        </fieldset>
+      <fieldset>
+        <legend>17. Baroque violin strings were made of:</legend>
+        <label><input type="radio" name="q17" value="Silk"> Silk</label>
+        <label><input type="radio" name="q17" value="Steel"> Steel</label>
+        <label><input type="radio" name="q17" value="Gut"> Gut</label> <!-- Correct -->
+        <label><input type="radio" name="q17" value="Nylon"> Nylon</label>
+        <label><input type="radio" name="q17" value="Wire"> Wire</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>18. Which wood is traditionally preferred for the soundboard of high-end acoustic guitars due to its excellent resonance?</legend>
-            <label><input type="radio" name="q18" value="Mahogany"> Mahogany</label>
-            <label><input type="radio" name="q18" value="Spruce"> Spruce</label> <!-- Correct -->
-            <label><input type="radio" name="q18" value="Rosewood"> Rosewood</label>
-            <label><input type="radio" name="q18" value="Maple"> Maple</label>
-            <label><input type="radio" name="q18" value="Cedar"> Cedar</label>
-        </fieldset>
+      <fieldset>
+        <legend>18. Which wood is traditionally preferred for the soundboard of high-end acoustic guitars due to its
+          excellent resonance?</legend>
+        <label><input type="radio" name="q18" value="Mahogany"> Mahogany</label>
+        <label><input type="radio" name="q18" value="Spruce"> Spruce</label> <!-- Correct -->
+        <label><input type="radio" name="q18" value="Rosewood"> Rosewood</label>
+        <label><input type="radio" name="q18" value="Maple"> Maple</label>
+        <label><input type="radio" name="q18" value="Cedar"> Cedar</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>19. Violin "Messiah" Stradivarius is:</legend>
-            <label><input type="radio" name="q19" value="Lost"> Lost</label>
-            <label><input type="radio" name="q19" value="Most copied"> Most copied design</label>
-            <label><input type="radio" name="q19" value="Unplayed"> Never played, pristine condition</label> <!-- Correct -->
-            <label><input type="radio" name="q19" value="Oldest"> Oldest surviving violin</label>
-            <label><input type="radio" name="q19" value="Sold at auction"> Sold at auction</label>
-        </fieldset>
+      <fieldset>
+        <legend>19. Violin "Messiah" Stradivarius is:</legend>
+        <label><input type="radio" name="q19" value="Lost"> Lost</label>
+        <label><input type="radio" name="q19" value="Most copied"> Most copied design</label>
+        <label><input type="radio" name="q19" value="Unplayed"> Never played, pristine condition</label>
+        <!-- Correct -->
+        <label><input type="radio" name="q19" value="Oldest"> Oldest surviving violin</label>
+        <label><input type="radio" name="q19" value="Sold at auction"> Sold at auction</label>
+      </fieldset>
 
-        <fieldset>
-            <legend>20. Bariolage involves:</legend>
-            <label><input type="radio" name="q20" value="Artificial harmonics"> Artificial harmonics</label>
-            <label><input type="radio" name="q20" value="Glissando"> Glissando</label>
-            <label><input type="radio" name="q20" value="String crossing"> Rapid string crossing</label> <!-- Correct -->
-            <label><input type="radio" name="q20" value="Staccato"> Staccato</label>
-            <label><input type="radio" name="q20" value="Finger tapping"> Finger tapping</label>
-        </fieldset>
+      <fieldset>
+        <legend>20. Bariolage involves:</legend>
+        <label><input type="radio" name="q20" value="Artificial harmonics"> Artificial harmonics</label>
+        <label><input type="radio" name="q20" value="Glissando"> Glissando</label>
+        <label><input type="radio" name="q20" value="String crossing"> Rapid string crossing</label> <!-- Correct -->
+        <label><input type="radio" name="q20" value="Staccato"> Staccato</label>
+        <label><input type="radio" name="q20" value="Finger tapping"> Finger tapping</label>
+      </fieldset>
     </details>
 
     <h3 id="scorebox">Not submitted</h3>
     <button type="button" id="btnSubmit">Submit Quiz</button>
 
-    <br>
-    <br>
+    <br><br><br><br>
 
+    <button id="startBtn">Start Game</button>
     <div id="score">Score: 0</div>
-    <div id="instructions">
-        Press D, F, J, K keys or click the buttons when notes reach the red line!
-    </div>
-    
+    <div id="lives">Lives: 3</div>
+
     <div id="gameContainer">
-        <div class="lane">
-            <button class="lane-button">D</button>
-        </div>
-        <div class="lane">
-            <button class="lane-button">F</button>
-        </div>
-        <div class="lane">
-            <button class="lane-button">J</button>
-        </div>
-        <div class="lane">
-            <button class="lane-button">K</button>
-        </div>
-        <div class="hit-line"></div>
+      <div class="lane">
+        <button class="lane-button">D</button>
+      </div>
+      <div class="lane">
+        <button class="lane-button">F</button>
+      </div>
+      <div class="lane">
+        <button class="lane-button">J</button>
+      </div>
+      <div class="lane">
+        <button class="lane-button">K</button>
+      </div>
+      <div class="hit-line"></div>
     </div>
+
 
   </div>
+
 
 </body>
 

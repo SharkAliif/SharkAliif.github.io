@@ -1,4 +1,3 @@
-/* ===== CSS RESET & FONTS ===== */
 * {
   margin: 0;
   padding: 0;
@@ -15,62 +14,110 @@
   src: url('fonts/LuthierFF/Luthier-Regular.ttf');
 }
 
-/* ===== ANIMATIONS ===== */
+/* Animations */
 @keyframes fadein {
-  from { background-color: #111; opacity: 0; }
-  to { background-color: #f9f9f9; opacity: 1; }
+  from {
+    background-color: #682f10;
+    opacity: 0;
+  }
+
+  to {
+    background-color: #fffffe;
+    opacity: 1;
+  }
 }
 
 @keyframes floatNote {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes buttonFlash {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); background: #ff6b6b; box-shadow: 0 0 15px #ff6b6b; }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+    background: #df6c2d;
+    box-shadow: 0 0 15px #df6c2d;
+  }
 }
 
-/* ===== BASE STYLES ===== */
-html, body {
+html,
+body {
   font: 22px Arial, Helvetica, sans-serif;
-  color: #444;
+  color: #682f10;
   text-align: center;
   animation: fadein ease-in 2s forwards;
   padding-top: 70px;
-  background-color: #f9f9f9;
+  background-color: #fffffe;
 }
 
-/* ===== TYPOGRAPHY ===== */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Glorious-christmas-font', cursive;
   margin-top: 25px;
-  color: #556b7a;
-  text-shadow: 1px 1px 2px #c7d5e0;
+  color: #a84c1a;
+  text-shadow: 1px 1px 2px #f5d1be;
 }
 
-h1 { font-size: 42px; margin-bottom: 35px; }
-h2 { font-size: 36px; margin-bottom: 35px; }
-h3 { font-size: 28px; margin-top: 35px; margin-bottom: 15px; }
-h4, h5, h6 { font-size: 24px; margin-top: 25px; margin-bottom: 15px; }
+h1 {
+  font-size: 42px;
+  margin-bottom: 35px;
+}
 
-p, li {
+h2 {
+  font-size: 36px;
+  margin-bottom: 35px;
+}
+
+h3 {
+  font-size: 28px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 24px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+p,
+li {
   font: 20px/1.7 'Luthier', serif;
-  color: #556b7a;
-  background-color: #f0f8ff;
+  color: #682f10;
+  background-color: #f5d1be;
   padding: 18px;
   margin-bottom: 25px;
-  border-left: 5px solid #a8b6bf;
+  border-left: 5px solid #e9996e;
   border-radius: 6px;
 }
 
-ul, ol {
+ul,
+ol {
   padding-left: 1.5rem;
   margin-top: 0.5rem;
   text-align: left;
 }
 
-/* ===== LAYOUT ===== */
+
 .page {
   max-width: 1100px;
   margin: auto;
@@ -83,17 +130,28 @@ ul, ol {
   border-radius: 15px;
   margin-top: 15px;
   border: 6px solid;
-  border-image: linear-gradient(to right, #a8b6bf, #f0f8ff) 1;
-  background-color: #c7d5e0;
+  border-image: linear-gradient(to right, #e9996e, #f5d1be) 1;
+  background-color: #df6c2d;
 }
 
 .global-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* ===== NAVIGATION ===== */
+@media (min-width: 801px) {
+  .global-grid {
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 columns */
+  }
+}
+
+@media (max-width: 800px) {
+  .global-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+}
+
+
 nav {
   position: fixed;
   top: 0;
@@ -101,7 +159,7 @@ nav {
   right: 0;
   z-index: 10;
   height: 60px;
-  background: linear-gradient(135deg, #8D6E63, #5D4037);
+  background: linear-gradient(135deg, #a84c1a, #682f10);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -131,13 +189,16 @@ nav ul {
   list-style: none;
 }
 
-nav ul.menuShow { display: flex; }
+nav ul.menuShow {
+  display: flex;
+}
 
-nav li, nav button {
+nav li,
+nav button {
   padding: 15px 20px;
   background: transparent;
   border: none;
-  color: #FFF8F0;
+  color: #fffffe;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: 'Luthier', serif;
@@ -145,10 +206,10 @@ nav li, nav button {
 
 nav button:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  text-shadow: 0 0 5px #FFD700;
+  text-shadow: 0 0 5px #df6c2d;
 }
 
-/* ===== CARDS ===== */
+/* cards */
 .flip-card {
   background-color: transparent;
   width: 25vw;
@@ -168,23 +229,26 @@ nav button:hover {
   transform-style: preserve-3d;
 }
 
-.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 10px;
-  background-color: #F5E9DC;
-  border: 3px solid #3E2723;
+  background-color: #f5d1be;
+  border: 3px solid #682f10;
   display: flex;
   justify-content: center;
   transition: 0.5s ease;
 }
 
 .flip-card-back {
-  color: #F5E9DC;
+  color: #fffffe;
   transform: rotateY(180deg);
   flex-direction: column;
   padding: 20px;
@@ -193,21 +257,21 @@ nav button:hover {
 .flip-card:hover .flip-card-front {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background-color: #BCAAA4;
-  border: 5px solid #FFF8F0;
+  background-color: #e9996e;
+  border: 5px solid #fffffe;
 }
 
 .region-card {
-  background-color: #FBE9E7;
+  background-color: #f5d1be;
   padding: 15px;
-  border: 2px solid #D7CCC8;
+  border: 2px solid #e9996e;
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
 
 .region-card:hover {
   transform: scale(1.03);
-  background-color: #EFEBE9;
+  background-color: #e9996e;
 }
 
 #Instrument-CardContainer {
@@ -217,66 +281,79 @@ nav button:hover {
   flex-wrap: wrap;
 }
 
-/* ===== FORMS & BUTTONS ===== */
+/* forms / quiz */
 fieldset {
-  border: 2px solid #5D4037;
+  border: 2px solid #a84c1a;
   padding: 15px;
   border-radius: 8px;
-  background-color: #F5E9DC;
+  background-color: #f5d1be;
   margin-bottom: 20px;
 }
 
 legend {
   font: bold 1.1em 'Luthier', serif;
-  color: #5D4037;
-  text-shadow: 1px 1px 2px #D7CCC8;
+  color: #682f10;
+  text-shadow: 1px 1px 2px #e9996e;
 }
 
 label {
   display: block;
-  background-color: #D7CCC8;
+  background-color: #e9996e;
   border-radius: 10px;
   padding: 20px 0;
   margin: 8px 0;
-  border-left: 4px solid #8D6E63;
+  border-left: 4px solid #a84c1a;
   cursor: pointer;
   font-family: 'Luthier', serif;
   transition: all 0.3s ease;
 }
 
 label:hover {
-  background-color: #BCAAA4;
-  color: #FFF8F0;
+  background-color: #a84c1a;
+  color: #fffffe;
 }
 
-button, input { font-family: 'Luthier', serif; }
+button,
+input {
+  font-family: 'Luthier', serif;
+}
 
-#StartBtn, #btnSubmit {
+#StartBtn,
+#btnSubmit, #startBtn {
   padding: 10px 20px;
-  background: #5D4037;
-  color: #FFF8F0;
-  border: 2px solid #3E2723;
+  background: #a84c1a;
+  color: #fffffe;
+  border: 2px solid #682f10;
   cursor: pointer;
   border-radius: 8px;
   font-size: 1em;
   transition: all 0.3s ease;
 }
 
-#StartBtn:hover, #btnSubmit:hover {
-  background-color: #3E2723;
-  box-shadow: 0 0 10px #B87333;
+startBtn {
+  display: inline-block;
 }
 
-#btnSubmit { position: sticky; bottom: 50px; right: 0; }
+#StartBtn:hover,
+#btnSubmit:hover {
+  background-color: #682f10;
+  box-shadow: 0 0 10px #df6c2d;
+}
 
-/* ===== SCORE & FEEDBACK ===== */
+#btnSubmit {
+  position: sticky;
+  bottom: 50px;
+  right: 0;
+}
+
+/* Score and Feedback */
 #scorebox {
   position: sticky;
   bottom: 0;
   right: 0;
-  background-color: #F5E9DC;
-  color: #3E2723;
-  border: 3px solid #5D4037;
+  background-color: #f5d1be;
+  color: #682f10;
+  border: 3px solid #a84c1a;
   text-align: center;
   font-weight: bold;
   padding: 10px;
@@ -284,46 +361,61 @@ button, input { font-family: 'Luthier', serif; }
   font-size: 1em;
 }
 
-.correct { color: #4caf50; font-weight: bold; }
-.incorrect { color: #f44336; font-weight: bold; }
+.correct {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.incorrect {
+  color: #f44336;
+  font-weight: bold;
+}
 
 /* ===== TABLES ===== */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #FFF8F0;
+  background-color: #fffffe;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-th, td {
+th,
+td {
   padding: 12px 16px;
-  border-bottom: 1px solid #D7CCC8;
+  border-bottom: 1px solid #e9996e;
   text-align: left;
   font-family: 'Luthier', serif;
 }
 
 th {
-  background-color: #5D4037;
-  color: #FFF8F0;
+  background-color: #a84c1a;
+  color: #fffffe;
 }
 
-tr:hover { background-color: #D7CCC8; }
+tr:hover {
+  background-color: #e9996e;
+}
 
-/* ===== DETAILS/SUMMARY ===== */
-details { margin: 10px 0; text-align: left; }
+
+details {
+  margin: 10px 0;
+  text-align: left;
+}
 
 summary {
   cursor: pointer;
   font: bold 1em 'Luthier', serif;
   padding: 10px;
-  background-color: rgba(141, 110, 99, 0.2);
+  background-color: rgba(168, 76, 26, 0.2);
   border-radius: 4px;
-  color: #3E2723;
+  color: #682f10;
 }
 
-details[open] summary { border-bottom: 2px solid #8D6E63; }
+details[open] summary {
+  border-bottom: 2px solid #a84c1a;
+}
 
-/* ===== INTERACTIVE ELEMENTS ===== */
+
 .ViolinSounds {
   display: flex;
   flex-wrap: wrap;
@@ -331,17 +423,17 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   gap: 1rem;
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #f9f3ec;
-  border: 1px solid black;
+  background-color: #f5d1be;
+  border: 1px solid #a84c1a;
   border-radius: 16px;
   max-width: 500px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .ViolinSounds button {
-  background-color: #fff7e8;
-  border: 2px solid #d4a373;
-  color: #5c3d27;
+  background-color: #fffffe;
+  border: 2px solid #e9996e;
+  color: #682f10;
   font: 1rem 'Luthier', serif;
   padding: 0.6rem 1.2rem;
   border-radius: 12px;
@@ -351,39 +443,51 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
 }
 
 .ViolinSounds button:hover {
-  background-color: #ffe8c9;
+  background-color: #e9996e;
   transform: scale(1.05);
-  border-color: #bc8a5f;
+  border-color: #a84c1a;
 }
 
 .ViolinSounds button:active {
   transform: scale(0.95);
-  background-color: #ffddb0;
+  background-color: #df6c2d;
 }
 
-/* ===== RHYTHM GAME ===== */
 #gameContainer {
   position: relative;
   width: 400px;
   height: 600px;
-  background: #222;
-  border: 2px solid #444;
+  background: #4b3424;
+  border: 2px solid #a84c1a;
   margin: 20px auto;
+  overflow: hidden;
 }
 
-/* Lanes for desktop: absolute positioned */
+/* Lanes for the game */
 .lane {
   position: absolute;
   width: 100px;
   height: 100%;
-  border-right: 1px solid #444;
-  background: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid #a84c1a;
+  background: rgba(233, 153, 110, 0.05);
 }
 
-.lane:nth-child(1) { left: 0; }
-.lane:nth-child(2) { left: 100px; }
-.lane:nth-child(3) { left: 200px; }
-.lane:nth-child(4) { left: 300px; border-right: none; }
+.lane:nth-child(1) {
+  left: 0;
+}
+
+.lane:nth-child(2) {
+  left: 100px;
+}
+
+.lane:nth-child(3) {
+  left: 200px;
+}
+
+.lane:nth-child(4) {
+  left: 300px;
+  border-right: none;
+}
 
 /* Hit line */
 .hit-line {
@@ -391,106 +495,146 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   bottom: 80px;
   width: 100%;
   height: 4px;
-  background: #ff6b6b;
-  box-shadow: 0 0 10px #ff6b6b;
+  background: #df6c2d;
+  box-shadow: 0 0 10px #df6c2d;
 }
 
-/* Notes */
+/* Note (ball) style */
 .note {
   position: absolute;
   width: 80px;
   height: 20px;
-  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  background: linear-gradient(45deg, #e9996e, #a84c1a);
   border-radius: 10px;
   left: 10px;
-  box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
-  transition: transform 0.1s;
+  box-shadow: 0 0 10px rgba(233, 153, 110, 0.5);
+  transition: transform 0.1s, 0.1s;
 }
 
+/* Hit animation: visual feedback without breaking layout */
 .note.hit {
   transform: scale(1.2);
-  background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+  background: linear-gradient(45deg, #df6c2d, #e9996e);
 }
 
-/* Buttons */
 .lane-button {
   position: absolute;
   bottom: 20px;
   width: 80px;
   height: 40px;
   left: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #666;
+  background: rgba(233, 153, 110, 0.1);
+  border: 2px solid #e9996e;
   border-radius: 5px;
   color: white;
-  font: bold 1em 'Luthier', serif;
+  font: bold 1em sans-serif;
   cursor: pointer;
   transition: all 0.1s;
 }
 
-.lane-button.flash {
-  animation: buttonFlash 0.2s ease-out;
+/* Flash effect for button */
+.lane-button.clicked {
+  background: #df6c2d;
 }
 
-/* Score and instructions */
-#score {
+.lane-button.glow {
+  background: #df6c2d;
+  box-shadow: 0 0 10px #df6c2d;
+  color: white;
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
+
+
+.lane-button.glow.lane-0 {
+  box-shadow: 0 0 10px 4px #00ffff;
+  background: #00ffff;
+}
+
+.lane-button.glow.lane-1 {
+  box-shadow: 0 0 10px 4px #ff00ff;
+  background: #ff00ff;
+}
+
+.lane-button.glow.lane-2 {
+  box-shadow: 0 0 10px 4px #ffff00;
+  background: #ffff00;
+}
+
+.lane-button.glow.lane-3 {
+  box-shadow: 0 0 10px 4px #df6c2d;
+  background: #df6c2d;
+}
+
+#score, #lives {
+  font-family:'Glorious-christmas-font';
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
   font-size: 24px;
-  margin-bottom: 10px;
-  color: #556b7a;
+  display: inline-block;
+  gap: 25px;
 }
 
-#instructions {
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #556b7a;
+#lives {
+  color: red;
 }
 
-
-/* ===== Responsive styles for screen width <= 800px ===== */
+/* Responsive */
 @media (max-width: 800px) {
   #gameContainer {
-    width: 90vw;
-    height: 70vh;
+    width: 100vw;
+    height: 80vh;
   }
 
   .lane {
-    position: absolute;
     width: 25%;
-    height: 100%;
-    border-right: 1px solid #444;
-    background: rgba(255, 255, 255, 0.05);
   }
 
-  .lane:nth-child(1) { left: 0%; }
-  .lane:nth-child(2) { left: 25%; }
-  .lane:nth-child(3) { left: 50%; }
-  .lane:nth-child(4) { left: 75%; border-right: none; }
+  .lane:nth-child(1) {
+    left: 0%;
+  }
+
+  .lane:nth-child(2) {
+    left: 25%;
+  }
+
+  .lane:nth-child(3) {
+    left: 50%;
+  }
+
+  .lane:nth-child(4) {
+    left: 75%;
+    border-right: none;
+  }
 
   .note {
     width: 80%;
+    height: 12px;
     left: 50%;
     transform: translateX(-50%);
-    height: 12px;
   }
 
-  /* Buttons scaled for smaller screens */
+  .note.hit {
+    transform: translateX(-50%) scale(1.2);
+    /* preserve center on hit */
+  }
+
   .lane-button {
+    top: 565px;
     width: 80%;
-    height: 8%;
+    height: 13%;
     left: 10%;
     bottom: 5%;
     font-size: 0.9em;
   }
 
-  /* Hit line smaller and raised */
   .hit-line {
     bottom: 15%;
     height: 0.5%;
   }
 
-  #score {
-    font-size: 4vw;
+  #score, #lives {
+    font-size: 1.25em;
   }
 
   #instructions {
@@ -498,6 +642,89 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
   }
 }
 
+@media (min-width: 800px) {
+  #hamIcon {
+    display: none !important;
+  }
+
+  nav {
+    justify-content: center;
+    padding: 0;
+  }
+
+  nav ul {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    background: none;
+    box-shadow: none;
+  }
+
+  nav li {
+    margin: 0 15px;
+  }
+
+  nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+@media (max-width: 800px) {
+  #qrCodeImg {
+    display: none;
+  }
+
+  h1::after {
+    content: "(mobile)";
+  }
+
+  /* adds the word Mobile */
+
+
+  .flip-card {
+    width: 45vw;
+    min-width: 150px;
+  }
+
+  #gameContainer {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .ViolinSounds {
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .flip-card {
+    width: 80vw;
+    height: 250px;
+  }
+
+  .page {
+    padding: 15px;
+  }
+}
 
 .floating-note {
   position: absolute;
@@ -507,16 +734,18 @@ details[open] summary { border-bottom: 2px solid #8D6E63; }
 }
 
 .pixel-art {
+  display: inline-block;
   max-width: 100%;
   max-height: 100%;
   image-rendering: pixelated;
 }
 
 .sprite {
-  background: url('images/gameuiicons.png') no-repeat -438px -166px;
-  width: 149px;
-  height: 154px;
+  background: url('images/gameuiicons.png') no-repeat -717px -663px;
+  width: 146px;
+  height: 132px;
   justify-content: center;
+  align-items: center;
 }
 
 ol li {
@@ -526,7 +755,7 @@ ol li {
   margin-bottom: 0.5em;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   margin-top: 50px;
   padding: 30px 25px;
@@ -538,63 +767,4 @@ footer {
   border: 3px solid rgba(240, 248, 255, 0.3);
   letter-spacing: 1px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-/* ===== RESPONSIVE DESIGN ===== */
-@media (min-width: 800px) {
-  #hamIcon { display: none !important; }
-  
-  nav {
-    justify-content: center;
-    padding: 0;
-  }
-  
-  nav ul {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
-  }
-  
-  nav li { margin: 0 15px; }
-  
-  nav button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
-@media (max-width: 800px) {
-  #qrCodeImg { display: none; }
-  h1::after { content: "(mobile)"; }
-  
-  .flip-card {
-    width: 45vw;
-    min-width: 150px;
-  }
-  
-  #gameContainer {
-    width: 100%;
-    max-width: 350px;
-  }
-  
-  .ViolinSounds {
-    padding: 1rem;
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body { font-size: 18px; }
-  h1 { font-size: 32px; }
-  h2 { font-size: 28px; }
-  h3 { font-size: 24px; }
-  
-  .flip-card {
-    width: 80vw;
-    height: 250px;
-  }
-  
-  .page { padding: 15px; }
 }

@@ -1,13 +1,13 @@
 {
-    "name": "WebDevA2 252292L",
-    "short_name": "252292L",
+    "name": "WebDevA2 252292L Aliif",
+    "short_name": "Aliif (252292L)",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "icons": [
         {
-            "src": "favicon.ico",
+            "src": "images/favicon.ico",
             "sizes": "64x64",
             "type": "image/x-icon"
         }

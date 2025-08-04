@@ -149,8 +149,12 @@ ol {
   .global-grid {
     grid-template-columns: 1fr; /* Single column layout */
   }
-}
 
+  lane-button {
+    bottom: 45px;
+  }
+
+}
 
 nav {
   position: fixed;

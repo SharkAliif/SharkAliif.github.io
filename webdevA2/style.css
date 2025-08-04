@@ -207,12 +207,12 @@ nav button {
 nav button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   text-shadow:
-    0 0 4px #2ddfbc,
-    0 0 8px #2ddfbc,
-    0 0 12px #2ddfbc,
-    0 0 20px #2ddfbc;
-  color: #2ddfbc;
-  transform: scale(1.05);
+    0 0 4px #eb890a,
+    0 0 8px #eb890a,
+    0 0 12px #eb890a,
+    0 0 20px #eb890a;
+  color: #eb890a;
+  transform: scale(1.25);
 }
 
 nav button:active {
@@ -226,12 +226,12 @@ nav button:active {
 
 .pagebtn.CurrentlyClicked {
   text-shadow:
-    0 0 4px #2ddfbc,
-    0 0 8px #2ddfbc,
-    0 0 12px #2ddfbc,
-    0 0 20px #2ddfbc;
-  color: #2ddfbc;
-  transform: scale(1.05);
+    0 0 4px #eb890a,
+    0 0 8px #eb890a,
+    0 0 12px #eb890a,
+    0 0 20px #eb890a;
+  color: #eb890a;
+  transform: scale(1.25);
 }
 
 /* cards */
@@ -455,7 +455,7 @@ details[open] summary {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.ViolinSounds button {
+.ViolinSounds button, #StepButton {
   background-color: #fffffe;
   border: 2px solid #e9996e;
   color: #682f10;
@@ -467,13 +467,13 @@ details[open] summary {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.ViolinSounds button:hover {
+.ViolinSounds button:hover, #StepButton:hover {
   background-color: #e9996e;
   transform: scale(1.05);
   border-color: #a84c1a;
 }
 
-.ViolinSounds button:active {
+.ViolinSounds button:active, #StepButton:active {
   transform: scale(0.95);
   background-color: #df6c2d;
 }
@@ -485,7 +485,6 @@ details[open] summary {
   background: #4b3424;
   border: 2px solid #a84c1a;
   margin: 20px auto;
-  overflow: hidden;
 }
 
 /* Lanes for the game */
@@ -778,6 +777,10 @@ ol li {
   border-left: 3px solid #8D6E63;
   padding: 8px;
   margin-bottom: 0.5em;
+}
+
+#Steps li {
+  display: none;
 }
 
 footer {

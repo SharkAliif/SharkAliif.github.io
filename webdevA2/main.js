@@ -203,7 +203,7 @@ const btnFS=document.querySelector("#btnFS");
  const btnWS=document.querySelector("#btnWS");
  btnFS.addEventListener("click",enterFullscreen);
  btnWS.addEventListener("click",exitFullscreen);
- function enterFullscreen() { //must be called by user generated event
+ function enterFullscreen() {
  document.documentElement.requestFullscreen(); 
 }
  function exitFullscreen() {
@@ -383,7 +383,7 @@ for (var j = 0; j < flipCard.length; j++) {
 }
 
 // FLOATING NOTES ANIMATION
-var floatingNotes = document.querySelectorAll(".floating-note"); // Renamed to avoid conflict
+var floatingNotes = document.querySelectorAll(".floating-note");
 
 for (var k = 0; k < floatingNotes.length; k++) {
     (function (note, i) {
@@ -430,3 +430,21 @@ if (heightOutput && widthOutput) {
         reportWindowSize();
     });
 }
+
+// Show list on Button press
+
+let i = 0;
+const ViolinMakingSteps = document.querySelectorAll("#Steps li");
+const StepButton = document.querySelector("#StepButton");
+
+function NextStep() {
+    if (i < ViolinMakingSteps.length) {
+        ViolinMakingSteps[i++].style.display = "list-item";
+    }
+
+    else if (i = 11) {
+        StepButton.style.display = "none";
+    }
+}
+
+StepButton.addEventListener("click", NextStep);

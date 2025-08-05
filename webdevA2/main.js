@@ -1,4 +1,102 @@
+// hamburger menu
+var hamBtn = document.querySelector("#hamIcon");
+var menuItemsList = document.querySelector("nav ul");
 
+if (hamBtn && menuItemsList) {
+    hamBtn.addEventListener("click", toggleMenus);
+}
+
+function toggleMenus() {
+    menuItemsList.classList.toggle("menuShow");
+    if (menuItemsList.classList.contains("menuShow")) {
+        hamBtn.innerHTML = "Close Menu";
+    } else {
+        hamBtn.innerHTML = "Open Menu";
+    }
+}
+
+// Page Navigation
+var page1btn = document.querySelector("#btn1");
+var page2btn = document.querySelector("#btn2");
+var page3btn = document.querySelector("#btn3");
+var page4btn = document.querySelector("#btn4");
+var page5btn = document.querySelector("#btn5");
+var allpages = document.querySelectorAll(".page");
+
+function hideall() {
+    for (var i = 0; i < allpages.length; i++) {
+        allpages[i].style.display = "none";
+    }
+}
+
+function show(pgno) {
+    hideall();
+    var onepage = document.querySelector("#page" + pgno);
+    if (onepage) {
+        onepage.style.display = "block";
+    }
+}
+
+if (page1btn) page1btn.addEventListener("click", function () { show(1); });
+if (page2btn) page2btn.addEventListener("click", function () { show(2); });
+if (page3btn) page3btn.addEventListener("click", function () { show(3); });
+if (page4btn) page4btn.addEventListener("click", function () { show(4); });
+if (page5btn) page5btn.addEventListener("click", function () { show(5); });
+
+if (allpages.length > 0) {
+    hideall();
+}
+
+if (page1btn) {
+    page1btn.addEventListener("click", function () {
+        show(1);
+        clearClicked();
+        page1btn.classList.add("CurrentlyClicked");
+    });
+}
+
+if (page2btn) {
+    page2btn.addEventListener("click", function () {
+        show(2);
+        clearClicked();
+        page2btn.classList.add("CurrentlyClicked");
+    });
+}
+
+if (page3btn) {
+    page3btn.addEventListener("click", function () {
+        show(3);
+        clearClicked();
+        page3btn.classList.add("CurrentlyClicked");
+    });
+}
+
+if (page4btn) {
+    page4btn.addEventListener("click", function () {
+        show(4);
+        clearClicked();
+        page4btn.classList.add("CurrentlyClicked");
+    });
+}
+
+if (page5btn) {
+    page5btn.addEventListener("click", function () {
+        show(5);
+        clearClicked();
+        page5btn.classList.add("CurrentlyClicked");
+    });
+}
+
+function clearClicked() {
+    if (page1btn) page1btn.classList.remove("CurrentlyClicked");
+    if (page2btn) page2btn.classList.remove("CurrentlyClicked");
+    if (page3btn) page3btn.classList.remove("CurrentlyClicked");
+    if (page4btn) page4btn.classList.remove("CurrentlyClicked");
+    if (page5btn) page5btn.classList.remove("CurrentlyClicked");
+}
+
+
+// stores all the quiz answers categorized by difficulty
 var CorrectAnswers = {
     // EASY (1–5)
     q1: "4",
@@ -30,7 +128,7 @@ var CorrectAnswers = {
 };
 
 
-// Audio files for violin sounds
+// Audio handling for violin sounds which uses event delegation on parent div
 var ViolinVibrato = new Audio("audio/ViolinArcoVibratoAudio.mp3");
 var ViolinNoVibrato = new Audio("audio/ViolinArcoNoVibratoAudio.mp3");
 var ViolinPizz = new Audio("audio/ViolinPizzicatoAudio.mp3");
@@ -57,10 +155,11 @@ const btnSubmit = document.querySelector("#btnSubmit");
 const scorebox = document.querySelector("#scorebox");
 let quizScore = 0;
 
+// Quiz scoring logic which highlights correct/incorrect answers visually
 function CheckAns() {
     quizScore = 0;
 
-    // Clear old feedback
+    // Clears previous feedback before checking new answers
     let feedback = document.querySelectorAll(".correct, .incorrect");
     for (let i = 0; i < feedback.length; i++) {
         feedback[i].classList.remove("correct", "incorrect");
@@ -101,115 +200,22 @@ if (btnSubmit) {
     btnSubmit.addEventListener("click", CheckAns);
 }
 
-// hamburger menu
-var hamBtn = document.querySelector("#hamIcon");
-var menuItemsList = document.querySelector("nav ul");
 
-if (hamBtn && menuItemsList) {
-    hamBtn.addEventListener("click", toggleMenus);
+// Fullscreen toggle functionality 
+const btnFS = document.querySelector("#btnFS");
+const btnWS = document.querySelector("#btnWS");
+btnFS.addEventListener("click", enterFullscreen);
+btnWS.addEventListener("click", exitFullscreen);
+function enterFullscreen() {
+    document.documentElement.requestFullscreen();
 }
 
-function toggleMenus() {
-    menuItemsList.classList.toggle("menuShow");
-    if (menuItemsList.classList.contains("menuShow")) {
-        hamBtn.innerHTML = "Close Menu";
-    } else {
-        hamBtn.innerHTML = "Open Menu";
-    }
-}
-
-// PAGE NAVIGATION
-var page1btn = document.querySelector("#btn1");
-var page2btn = document.querySelector("#btn2");
-var page3btn = document.querySelector("#btn3");
-var page4btn = document.querySelector("#btn4");
-var page5btn = document.querySelector("#btn5");
-var allpages = document.querySelectorAll(".page");
-
-function hideall() {
-    for (var i = 0; i < allpages.length; i++) {
-        allpages[i].style.display = "none";
-    }
-}
-
-function show(pgno) {
-    hideall();
-    var onepage = document.querySelector("#page" + pgno);
-    if (onepage) {
-        onepage.style.display = "block";
-    }
-}
-
-if (page1btn) page1btn.addEventListener("click", function () { show(1); });
-if (page2btn) page2btn.addEventListener("click", function () { show(2); });
-if (page3btn) page3btn.addEventListener("click", function () { show(3); });
-if (page4btn) page4btn.addEventListener("click", function () { show(4); });
-if (page5btn) page5btn.addEventListener("click", function () { show(5); });
-
-if (allpages.length > 0) {
-    hideall();
-}
-
-if (page1btn) {
-  page1btn.addEventListener("click", function () {
-    show(1);
-    clearClicked();
-    page1btn.classList.add("CurrentlyClicked");
-  });
-}
-
-if (page2btn) {
-  page2btn.addEventListener("click", function () {
-    show(2);
-    clearClicked();
-    page2btn.classList.add("CurrentlyClicked");
-  });
-}
-
-if (page3btn) {
-  page3btn.addEventListener("click", function () {
-    show(3);
-    clearClicked();
-    page3btn.classList.add("CurrentlyClicked");
-  });
-}
-
-if (page4btn) {
-  page4btn.addEventListener("click", function () {
-    show(4);
-    clearClicked();
-    page4btn.classList.add("CurrentlyClicked");
-  });
-}
-
-if (page5btn) {
-  page5btn.addEventListener("click", function () {
-    show(5);
-    clearClicked();
-    page5btn.classList.add("CurrentlyClicked");
-  });
-}
-
-function clearClicked() {
-  if (page1btn) page1btn.classList.remove("CurrentlyClicked");
-  if (page2btn) page2btn.classList.remove("CurrentlyClicked");
-  if (page3btn) page3btn.classList.remove("CurrentlyClicked");
-  if (page4btn) page4btn.classList.remove("CurrentlyClicked");
-  if (page5btn) page5btn.classList.remove("CurrentlyClicked");
+function exitFullscreen() {
+    document.exitFullscreen();
 }
 
 
-const btnFS=document.querySelector("#btnFS");
- const btnWS=document.querySelector("#btnWS");
- btnFS.addEventListener("click",enterFullscreen);
- btnWS.addEventListener("click",exitFullscreen);
- function enterFullscreen() {
- document.documentElement.requestFullscreen(); 
-}
- function exitFullscreen() {
- document.exitFullscreen();
- }
-
+// Rhythm game variables and state management
 let points = 0;
 let lives = 3;
 let notes = [];
@@ -229,7 +235,7 @@ function initGame() {
     livesText.textContent = 'Lives: 3';
 }
 
-// Create one falling note
+// Note creation and movement logic
 function createNote() {
     if (!isGameRunning) return;
 
@@ -256,9 +262,9 @@ function moveNotes() {
 
         if (top > 100) {
             note.remove();
-            
+
             //  removes the note at index i from the notes array to prevent it from being tracked invisibly again.
-            notes.splice(i, 1); 
+            notes.splice(i, 1);
             i--;
             loseLife();
         }
@@ -288,11 +294,11 @@ function hitLane(index) {
     // Add glow effect
     const btn = buttons[index];
     btn.classList.add('glow', `lane-${index}`);
-   function removeGlow() {
-    btn.classList.remove('glow', `lane-${index}`);
-}
+    function removeGlow() {
+        btn.classList.remove('glow', `lane-${index}`);
+    }
 
-setTimeout(removeGlow, 150);
+    setTimeout(removeGlow, 150);
 
 
     for (let i = 0; i < notes.length; i++) {
@@ -310,7 +316,7 @@ setTimeout(removeGlow, 150);
 }
 
 
-// Start game
+// Start rythm game
 function startGame() {
     if (isGameRunning) return;
 
@@ -325,7 +331,7 @@ function startGame() {
 
     isGameRunning = true;
     gameInterval = setInterval(moveNotes, 20);
-    noteInterval = setInterval(createNote, 1000);
+    noteInterval = setInterval(createNote, 800);
 }
 
 // Stop game
@@ -344,7 +350,8 @@ function toggleGame() {
     else startGame();
 }
 
-// Keyboard
+// Game input handling uses both keyboard and mouse events
+// Keyboard press
 document.addEventListener('keydown', function (e) {
     if (e.key === 'd') hitLane(0);
     if (e.key === 'f') hitLane(1);
@@ -372,8 +379,7 @@ initGame();
 
 
 
-
-// FLIP CARDS
+// Flip card animation - toggles 'flipped' class on click
 var flipCard = document.querySelectorAll(".flip-card");
 
 for (var j = 0; j < flipCard.length; j++) {
@@ -382,38 +388,53 @@ for (var j = 0; j < flipCard.length; j++) {
     });
 }
 
-// FLOATING NOTES ANIMATION
+// Moving Note Animation
 var floatingNotes = document.querySelectorAll(".floating-note");
 
-for (var k = 0; k < floatingNotes.length; k++) {
-    (function (note, i) {
-        var posX = -100;
-        var posY = 250 + i * 50;
-        var goingDown = true;
+for (let k = 0; k < 2 && k < floatingNotes.length; k++) {
+    // Increase to make the note start more on the right side of the page
+    let posX = -100;
 
-        setTimeout(function () {
-            note.style.opacity = 1;
+    // Increase to make the note start more down
+    let posY = 250 + k * 50;
+    
+    let goingDown = true;
+    const note = floatingNotes[k];
+    
+    note.style.cursor = 'pointer';
 
-            setInterval(function () {
-                posX += 5;
-                if (posX > window.innerWidth) {
-                    posX = -100;
-                }
+    // Start animation after delay
+    setTimeout(function() {
+        var animationInterval = setInterval(function() {
+            // Horizontal movement
+            posX += 7.5; // Increase to Move faster horizontally
+            if (posX > window.innerWidth) {
+                posX = -100;
+            }
 
-                if (goingDown) {
-                    posY += 3;
-                    if (posY >= 330) goingDown = false;
-                } else {
-                    posY -= 3;
-                    if (posY <= 270) goingDown = true;
-                }
+            // Vertical movement
+            if (goingDown) {
+                posY += 3; // Increase to Move faster downwards
+                if (posY >= 330) goingDown = false; // The max Y to go down to
+            } else {
+                posY -= 3; // Increase to Move faster upwards
+                if (posY <= 270) goingDown = true; // The Min Y to go down to
+            }
 
-                note.style.left = posX + "px";
-                note.style.top = posY + "px";
-            }, 30);
-        }, i * 800);
-    })(floatingNotes[k], k);
+            // Sets the horizontal position of the note updates
+            note.style.left = posX + "px";
+             // Sets the Vertical position of the note updates
+            note.style.top = posY + "px";
+        }, 30); // interval of 30ms
+
+        // Add click handler to move note
+        note.onclick = function() {
+            // Generates a random floating point number and sets it to the posX
+            posX = Math.random() * 500;
+        };
+    }, k * 450); // The interval between the first and second note starting
 }
+
 
 // WINDOW RESIZE INFO
 var heightOutput = document.querySelector("#height");

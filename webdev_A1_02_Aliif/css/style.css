@@ -1,0 +1,232 @@
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter-Italic-VariableFont_opsz\,wght.woff2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+
+
+/* background image */
+.index {
+  background-image: url(../images/847.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+#backgroundphotocredit {
+  font-size: 1em;
+  color: gray;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0.5rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  background-color: #e0e0e0;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  border-radius: 8px;
+  margin: 0.5rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+section {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.game-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  display: block;
+  overflow-x: auto; /* makes the table scroll horizontally if the screen is too small */
+  max-width: 100%;
+}
+
+thead {
+  display: table;
+  width: 100%;
+}
+
+tbody {
+  display: table;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+  min-width: 120px;
+}
+
+th {
+  background-color: #004080;
+  color: white;
+  position: sticky;
+  left: 0;
+}
+
+@media (min-width: 480px) {
+  header h1 {
+    font-size: 1.75rem;
+  }
+  
+  nav a {
+    padding: 0.75rem 1rem;
+  }
+  
+  .game-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  nav a {
+    padding: 1rem 1.5rem;
+    min-width: 150px;
+  }
+  
+  .game-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  table {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  
+  nav {
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .game-images {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  main {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  table {
+    font-size: 0.85rem;
+  }
+  
+  th, td {
+    min-width: 100px;
+    padding: 0.4rem;
+  }
+}
+
